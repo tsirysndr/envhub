@@ -1,0 +1,23 @@
+[package]
+authors = ["Tsiry Sandratraina <tsiry.sndr@fluentci.io>"]
+categories = ["command-line-utilities"]
+description = "Manage your dotfiles and packages with ease."
+edition = "2021"
+keywords = ["nix", "shell", "environment", "dotfiles"]
+license = "MIT"
+name = "envhub"
+readme = "../../README.md"
+repository = "https://github.com/tsirysndr/envhub"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.71"
+clap = "3.2.20"
+envhub-hm = {path = "../hm", version = "0.1.0"}
+envhub-providers = {path = "../providers", version = "0.1.0"}
+envhub-types = {path = "../types", version = "0.1.0"}
+hcl-rs = "0.14.2"
+tokio = {version = "1.28.2", features = ["full"]}
+toml = "0.7.4"

@@ -1,0 +1,15 @@
+[package]
+authors = ["Tsiry Sandratraina <tsiry.sndr@fluentci.io>"]
+categories = ["command-line-utilities"]
+description = "Manage your dotfiles and packages with ease."
+edition = "2021"
+keywords = ["nix", "shell", "environment", "dotfiles"]
+license = "MIT"
+name = "envhub-pkgs"
+repository = "https://github.com/tsirysndr/envhub"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.71"
