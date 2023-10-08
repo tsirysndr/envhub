@@ -2,7 +2,7 @@ use anyhow::Error;
 use envhub_hm::switch::switch_env;
 use envhub_providers::{github::Github, local::Local, s3::S3, Provider};
 
-use crate::helpers::{copy_home_nix, get_home_manager_dir};
+use crate::helpers::{copy_home_nix, get_home_manager_dir, read_envhub_file};
 
 pub fn use_environment(name: &str) -> Result<(), Error> {
     let scheme = match name.split(":").collect::<Vec<&str>>().len() > 1 {
@@ -25,6 +25,8 @@ pub fn use_environment(name: &str) -> Result<(), Error> {
 
     copy_home_nix(&home_manager_dir)?;
 
-    switch_env(Some(&home_manager_dir))?;
+    let config = read_envhub_file(&home_manager_dir)?;
+
+    switch_env(Some(&home_manager_dir), &config)?;
     Ok(())
 }

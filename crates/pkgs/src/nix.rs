@@ -1,8 +1,6 @@
-use std::{env, process::Command};
-
-use anyhow::Error;
-
 use crate::PackageManager;
+use anyhow::Error;
+use std::{env, process::Command};
 
 pub struct Nix {}
 
@@ -14,11 +12,12 @@ impl Nix {
 
 impl PackageManager for Nix {
     fn install(&self, _name: &str) -> Result<(), Error> {
-        Ok(())
+        self.setup()?;
+        todo!();
     }
 
     fn uninstall(&self, _name: &str) -> Result<(), Error> {
-        Ok(())
+        todo!()
     }
 
     fn setup(&self) -> Result<(), Error> {

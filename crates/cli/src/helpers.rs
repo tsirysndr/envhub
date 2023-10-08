@@ -6,6 +6,7 @@ use std::{
 
 use anyhow::Error;
 use clap::ArgMatches;
+use envhub_types::configuration::Configuration;
 
 pub fn create_envhub_dirs() -> Result<(), Error> {
     let base_dir = format!("{}/.envhub", env::var("HOME")?);
@@ -103,4 +104,30 @@ pub fn parse_default_package_manager(args: &ArgMatches) -> &str {
     }
 
     return "nix";
+}
+
+pub fn read_envhub_file(dir: &str) -> Result<Configuration, Error> {
+    let mut path = format!("{}/envhub.toml", dir);
+
+    if !fs::metadata(&path).is_ok() {
+        path = format!("{}/envhub.hcl", dir);
+    }
+
+    if !fs::metadata(&path).is_ok() {
+        panic!("No `envhub.toml` or `envhub.hcl` file found in {}", dir)
+    }
+
+    let contents = fs::read_to_string(&path)?;
+    let ext = path.split(".").last().unwrap();
+    match ext {
+        "toml" => {
+            let config: Configuration = toml::from_str(&contents)?;
+            Ok(config)
+        }
+        "hcl" => {
+            let config: Configuration = hcl::from_str(&contents)?;
+            Ok(config)
+        }
+        _ => panic!("Unknown file extension: {}", ext),
+    }
 }

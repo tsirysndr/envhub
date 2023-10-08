@@ -29,7 +29,7 @@ fn cli() -> Command<'static> {
                 .arg(arg!(--nix "Use nix as the package manager"))
                 .arg(arg!(--devbox "Use devbox as the package manager"))
                 .arg(arg!(--brew "Use homebrew as the package manager"))
-                .arg(arg!(--stow "Use GNU Stow as a configuration manager"))
+                .arg(arg!(--stow "Use GNU Stow as a symlink farm manager. Defaults to 'home-manager'"))
                 .arg(
                     Arg::new("pkgs")
                         .alias("packages")
@@ -134,12 +134,14 @@ async fn main() -> Result<(), Error> {
                     packages,
                     envs,
                     parse_default_package_manager(args),
+                    args.is_present("stow"),
                 )?,
                 false => cmd::init::execute_init(
                     envhub_types::configuration::ConfigFormat::HCL,
                     packages,
                     envs,
                     parse_default_package_manager(args),
+                    args.is_present("stow"),
                 )?,
             }
         }

@@ -43,6 +43,7 @@ pub fn generate_config(
     packages: Vec<String>,
     envs: Vec<String>,
     package_manager: &str,
+    use_stow: bool,
 ) -> Result<(), Error> {
     let mut config = Configuration {
         packages: match package_manager {
@@ -62,6 +63,10 @@ pub fn generate_config(
                     })
                     .collect(),
             ),
+        },
+        symlink_manager: match use_stow {
+            true => Some("stow".into()),
+            false => None,
         },
         ..Default::default()
     };

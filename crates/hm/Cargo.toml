@@ -13,3 +13,5 @@ version = "0.1.0"
 
 [dependencies]
 anyhow = "1.0.71"
+envhub-types = {version = "0.1.0", path = "../types"}
+nix-editor = "0.3.0"

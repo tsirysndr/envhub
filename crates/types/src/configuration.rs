@@ -54,4 +54,6 @@ pub struct Configuration {
         serialize_with = "hcl::ser::labeled_block"
     )]
     pub files: Option<IndexMap<String, File>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub symlink_manager: Option<String>,
 }
