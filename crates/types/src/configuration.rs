@@ -15,9 +15,34 @@ pub struct File {
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, Default)]
+pub struct Packages {
+    pub packages: Vec<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone, Default)]
 pub struct Configuration {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packages: Option<Vec<String>>,
+    #[serde(
+        skip_serializing_if = "Option::is_none",
+        serialize_with = "hcl::ser::block"
+    )]
+    pub homebrew: Option<Packages>,
+    #[serde(
+        skip_serializing_if = "Option::is_none",
+        serialize_with = "hcl::ser::block"
+    )]
+    pub pkgx: Option<Packages>,
+    #[serde(
+        skip_serializing_if = "Option::is_none",
+        serialize_with = "hcl::ser::block"
+    )]
+    pub devbox: Option<Packages>,
+    #[serde(
+        skip_serializing_if = "Option::is_none",
+        serialize_with = "hcl::ser::block"
+    )]
+    pub nix: Option<Packages>,
     #[serde(
         skip_serializing_if = "Option::is_none",
         serialize_with = "hcl::ser::block"

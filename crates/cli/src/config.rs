@@ -1,7 +1,7 @@
 use std::{fs::File, io::Write};
 
 use anyhow::Error;
-use envhub_types::configuration::{ConfigFormat, Configuration};
+use envhub_types::configuration::{ConfigFormat, Configuration, Packages};
 
 pub fn generate_default_config(cfg_format: &ConfigFormat) -> Result<(), Error> {
     let config = Configuration {
@@ -28,6 +28,7 @@ pub fn generate_default_config(cfg_format: &ConfigFormat) -> Result<(), Error> {
             .cloned()
             .collect(),
         ),
+        ..Default::default()
     };
 
     match cfg_format {
@@ -41,9 +42,13 @@ pub fn generate_config(
     cfg_format: &ConfigFormat,
     packages: Vec<String>,
     envs: Vec<String>,
+    package_manager: &str,
 ) -> Result<(), Error> {
-    let config = Configuration {
-        packages: Some(packages),
+    let mut config = Configuration {
+        packages: match package_manager {
+            "nix" => Some(packages.clone()),
+            _ => None,
+        },
         envs: match envs.is_empty() {
             true => None,
             false => Some(
@@ -59,6 +64,19 @@ pub fn generate_config(
             ),
         },
         ..Default::default()
+    };
+
+    match package_manager {
+        "homebrew" => {
+            config.homebrew = Some(Packages { packages });
+        }
+        "pkgx" => {
+            config.pkgx = Some(Packages { packages });
+        }
+        "devbox" => {
+            config.devbox = Some(Packages { packages });
+        }
+        _ => {}
     };
 
     match cfg_format {

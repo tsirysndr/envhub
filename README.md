@@ -6,7 +6,7 @@ Written in [Rust](https://www.rust-lang.org/), internally it uses [nix](https://
 
 Note: This is a work in progress. 🏗️🚧
 
-# Example
+## 📚 Example
 
 The following example will install the `hello` package, set the `EDITOR` environment variable to `vim`, and copy the `.screenrc` and `gradle.properties` files from the current directory to the home directory.
 

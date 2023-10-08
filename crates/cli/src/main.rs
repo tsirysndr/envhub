@@ -1,6 +1,6 @@
 use anyhow::Error;
 use clap::{arg, Arg, Command};
-use helpers::create_envhub_dirs;
+use helpers::{create_envhub_dirs, parse_default_package_manager};
 
 pub mod cmd;
 pub mod config;
@@ -25,6 +25,11 @@ fn cli() -> Command<'static> {
         .subcommand(
             Command::new("init")
                 .arg(arg!(--toml "Generate a default configuration file in toml format"))
+                .arg(arg!(--pkgx "Use pkgx as the package manager"))
+                .arg(arg!(--nix "Use nix as the package manager"))
+                .arg(arg!(--devbox "Use devbox as the package manager"))
+                .arg(arg!(--brew "Use homebrew as the package manager"))
+                .arg(arg!(--stow "Use GNU Stow as a configuration manager"))
                 .arg(
                     Arg::new("pkgs")
                         .alias("packages")
@@ -128,11 +133,13 @@ async fn main() -> Result<(), Error> {
                     envhub_types::configuration::ConfigFormat::TOML,
                     packages,
                     envs,
+                    parse_default_package_manager(args),
                 )?,
                 false => cmd::init::execute_init(
                     envhub_types::configuration::ConfigFormat::HCL,
                     packages,
                     envs,
+                    parse_default_package_manager(args),
                 )?,
             }
         }

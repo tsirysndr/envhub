@@ -5,6 +5,7 @@ use std::{
 };
 
 use anyhow::Error;
+use clap::ArgMatches;
 
 pub fn create_envhub_dirs() -> Result<(), Error> {
     let base_dir = format!("{}/.envhub", env::var("HOME")?);
@@ -82,4 +83,24 @@ pub fn get_home_manager_dir(scheme: &str, name: &str) -> Result<String, Error> {
         _ => panic!("Unknown scheme: {}", scheme),
     };
     Ok(path)
+}
+
+pub fn parse_default_package_manager(args: &ArgMatches) -> &str {
+    if args.is_present("nix") {
+        return "nix";
+    }
+
+    if args.is_present("brew") {
+        return "homebrew";
+    }
+
+    if args.is_present("pkgx") {
+        return "pkgx";
+    }
+
+    if args.is_present("devbox") {
+        return "devbox";
+    }
+
+    return "nix";
 }
