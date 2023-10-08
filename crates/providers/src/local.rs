@@ -19,10 +19,22 @@ impl Local {
         let home = home.to_str().unwrap();
         let local_dir = fs::canonicalize(name)?;
         let dest = format!("{}/.envhub/local", home);
-        let mut child = Command::new("cp")
-            .arg("-r")
-            .arg(local_dir.to_str().unwrap())
-            .arg(dest)
+        let name = local_dir.file_name().unwrap().to_str().unwrap();
+        let mut child = Command::new("sh")
+            .arg("-c")
+            .arg(format!(
+                "[ -d {}/{} ] && rm -rf {}/{}",
+                dest, name, dest, name
+            ))
+            .stdin(Stdio::inherit())
+            .stdout(Stdio::inherit())
+            .stderr(Stdio::inherit())
+            .spawn()?;
+        child.wait()?;
+
+        let mut child = Command::new("sh")
+            .arg("-c")
+            .arg(format!("cp -r {} {}", local_dir.to_str().unwrap(), dest))
             .stdin(Stdio::inherit())
             .stdout(Stdio::inherit())
             .stderr(Stdio::inherit())
