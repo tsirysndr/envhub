@@ -11,6 +11,7 @@ Note: This is a work in progress. 🏗️🚧
 The following example will install the `hello` package, set the `EDITOR` environment variable to `vim`, and copy the `.screenrc` and `gradle.properties` files from the current directory to the home directory.
 
 ```hcl
+# Path: envhub.hcl
 packages = [
   "hello"
 ]
