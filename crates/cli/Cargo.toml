@@ -17,6 +17,7 @@ anyhow = "1.0.71"
 clap = "3.2.20"
 envhub-hm = {path = "../hm", version = "0.1.0"}
 envhub-providers = {path = "../providers", version = "0.1.0"}
+envhub-stow = {path = "../stow", version = "0.1.0"}
 envhub-types = {path = "../types", version = "0.1.0"}
 hcl-rs = "0.14.2"
 tokio = {version = "1.28.2", features = ["full"]}
