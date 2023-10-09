@@ -6,6 +6,7 @@ use std::{
 
 use anyhow::Error;
 use clap::ArgMatches;
+use envhub_pkgs::{devbox::Devbox, homebrew::Homebrew, pkgx::Pkgx, PackageManager};
 use envhub_types::configuration::Configuration;
 
 pub fn create_envhub_dirs() -> Result<(), Error> {
@@ -130,4 +131,21 @@ pub fn read_envhub_file(dir: &str) -> Result<Configuration, Error> {
         }
         _ => panic!("Unknown file extension: {}", ext),
     }
+}
+
+pub fn install_packages(config: &Configuration) -> Result<(), Error> {
+    let packages = config.packages.clone().unwrap_or_default();
+    let pm: Box<dyn PackageManager> = match config.package_manager.as_ref().unwrap().as_str() {
+        "homebrew" => Box::new(Homebrew::new()),
+        "brew" => Box::new(Homebrew::new()),
+        "pkgx" => Box::new(Pkgx::new()),
+        "devbox" => Box::new(Devbox::new()),
+        _ => panic!("Unknown package manager"),
+    };
+
+    for package in packages {
+        pm.install(&package)?;
+    }
+
+    Ok(())
 }

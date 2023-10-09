@@ -16,6 +16,7 @@ version = "0.1.0"
 anyhow = "1.0.71"
 clap = "3.2.20"
 envhub-hm = {path = "../hm", version = "0.1.0"}
+envhub-pkgs = {path = "../pkgs", version = "0.1.0"}
 envhub-providers = {path = "../providers", version = "0.1.0"}
 envhub-stow = {path = "../stow", version = "0.1.0"}
 envhub-types = {path = "../types", version = "0.1.0"}

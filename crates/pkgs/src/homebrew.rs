@@ -15,10 +15,7 @@ impl PackageManager for Homebrew {
         self.setup()?;
         let mut child = Command::new("sh")
             .arg("-c")
-            .arg(format!(
-                "type {} > /dev/null || brew install {}",
-                name, name
-            ))
+            .arg(format!("brew install {}", name))
             .stdin(Stdio::inherit())
             .stdout(Stdio::inherit())
             .stderr(Stdio::inherit())

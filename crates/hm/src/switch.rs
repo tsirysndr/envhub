@@ -12,8 +12,18 @@ use crate::{nix, HOME_MANAGER};
 pub fn switch_env(dir: Option<&str>, config: &Configuration) -> Result<(), Error> {
     nix::install()?;
     let home_nix = fs::read_to_string(format!("{}/home.nix", dir.unwrap_or(HOME_MANAGER)))?;
-    let mut updated_home_nix =
-        add_packages(&home_nix, config.packages.clone().unwrap_or_default())?;
+    let mut updated_home_nix = home_nix.clone();
+    match &config.package_manager {
+        Some(pm) => {
+            if pm == "nix" {
+                updated_home_nix =
+                    add_packages(&home_nix, config.packages.clone().unwrap_or_default())?
+            }
+        }
+        None => {
+            updated_home_nix = add_packages(&home_nix, config.packages.clone().unwrap_or_default())?
+        }
+    };
 
     match &config.symlink_manager {
         Some(sm) => {
