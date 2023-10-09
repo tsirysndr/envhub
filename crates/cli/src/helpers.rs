@@ -107,10 +107,10 @@ pub fn parse_default_package_manager(args: &ArgMatches) -> &str {
 }
 
 pub fn read_envhub_file(dir: &str) -> Result<Configuration, Error> {
-    let mut path = format!("{}/envhub.toml", dir);
+    let mut path = format!("{}/envhub.hcl", dir);
 
     if !fs::metadata(&path).is_ok() {
-        path = format!("{}/envhub.hcl", dir);
+        path = format!("{}/envhub.toml", dir);
     }
 
     if !fs::metadata(&path).is_ok() {

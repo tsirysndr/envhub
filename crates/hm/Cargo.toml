@@ -14,4 +14,6 @@ version = "0.1.0"
 [dependencies]
 anyhow = "1.0.71"
 envhub-types = {version = "0.1.0", path = "../types"}
+indexmap = {version = "1.9.3", features = ["serde"]}
 nix-editor = "0.3.0"
+rnix = "0.11.0"

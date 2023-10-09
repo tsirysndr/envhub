@@ -6,6 +6,23 @@ Written in [Rust](https://www.rust-lang.org/), internally it uses [nix](https://
 
 Note: This is a work in progress. 🏗️🚧
 
+## 🚚 Installation
+
+Using [Nix](https://nixos.org):
+
+```bash
+nix profile install --experimental-features "nix-command flakes" github:tsirysndr/envhub
+```
+
+Compile from source:
+
+```bash
+git clone https://github.com/tsirysndr/envhub.git
+cd envhub
+nix develop --experimental-features "nix-command flakes"
+cargo install --path crates/cli
+```
+
 ## 📚 Example
 
 The following example will install the `hello` package, set the `EDITOR` environment variable to `vim`, and copy the `.screenrc` and `gradle.properties` files from the current directory to the home directory.
@@ -28,3 +45,5 @@ file ".gradle/gradle.properties" {
   content = "org.gradle.daemon=true"
 }
 ```
+
+See [demo](demo) for a more complete example.

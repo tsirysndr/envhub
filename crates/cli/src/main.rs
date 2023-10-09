@@ -109,6 +109,10 @@ fn cli() -> Command<'static> {
                 .about("Enable an environment, can be a remote repository or a local directory")
                 .arg(arg!(<environment>).required(true).index(1)),
         )
+        .subcommand(
+          Command::new("unuse")
+            .about("Restore the previous environment"),
+        )
 }
 
 #[tokio::main]
@@ -161,6 +165,7 @@ async fn main() -> Result<(), Error> {
             _ => cli().print_help().unwrap(),
         },
         Some(("use", args)) => cmd::r#use::use_environment(args.value_of("environment").unwrap())?,
+        Some(("unuse", _)) => cmd::unuse::unuse_environment()?,
         _ => cli().print_help().unwrap(),
     }
     Ok(())

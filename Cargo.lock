@@ -370,7 +370,9 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "envhub-types",
+ "indexmap 1.9.3",
  "nix-editor",
+ "rnix 0.11.0",
 ]
 
 [[package]]
