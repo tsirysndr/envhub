@@ -357,6 +357,7 @@ dependencies = [
  "anyhow",
  "clap 3.2.25",
  "envhub-hm",
+ "envhub-pkgs",
  "envhub-providers",
  "envhub-stow",
  "envhub-types",
