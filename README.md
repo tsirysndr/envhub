@@ -1,4 +1,10 @@
-# EnvHub
+<p align="center">
+  <img 
+    src="envhub-banner.png"
+    alt="EnvHub"
+    style="width:100%;"
+  />
+</p>
 
 [![discord](https://img.shields.io/discord/1160636024167333979?label=discord&logo=discord&color=5865F2)](https://discord.gg/aTGPE3Myhk)
 
