@@ -13,3 +13,4 @@ version = "0.1.0"
 
 [dependencies]
 anyhow = "1.0.71"
+envhub-pkgs = {version = "0.1.0", path = "../pkgs"}

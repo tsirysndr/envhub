@@ -1,6 +1,9 @@
+use std::fs;
+
 use anyhow::Error;
 use envhub_hm::switch::switch_env;
 use envhub_providers::{github::Github, local::Local, s3::S3, Provider};
+use envhub_stow::stow::stow;
 
 use crate::helpers::{copy_home_nix, get_home_manager_dir, read_envhub_file};
 
@@ -28,5 +31,21 @@ pub fn use_environment(name: &str) -> Result<(), Error> {
     let config = read_envhub_file(&home_manager_dir)?;
 
     switch_env(Some(&home_manager_dir), &config)?;
+
+    if config.symlink_manager == Some("stow".into()) {
+        let target = std::env::var("HOME")?;
+        let package = "dotfiles";
+        stow(&home_manager_dir, &target, &package)?;
+    }
+
+    fs::write(
+        format!("{}/.envhub/current", std::env::var("HOME")?),
+        format!(
+            "{}\n{}",
+            &home_manager_dir,
+            &config.symlink_manager.unwrap_or("home-manager".into())
+        ),
+    )?;
+
     Ok(())
 }

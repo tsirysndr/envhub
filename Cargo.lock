@@ -358,6 +358,7 @@ dependencies = [
  "clap 3.2.25",
  "envhub-hm",
  "envhub-providers",
+ "envhub-stow",
  "envhub-types",
  "hcl-rs",
  "tokio",
@@ -395,6 +396,7 @@ name = "envhub-stow"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "envhub-pkgs",
 ]
 
 [[package]]
