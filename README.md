@@ -23,6 +23,7 @@ git clone https://github.com/tsirysndr/envhub.git
 cd envhub
 nix develop --experimental-features "nix-command flakes"
 cargo install --path crates/cli
+envhub --help
 ```
 
 ## 📚 Example
