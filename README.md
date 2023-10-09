@@ -1,6 +1,6 @@
 <p align="center">
   <img 
-    src="envhub-banner.png"
+    src="banner.png"
     alt="EnvHub"
     style="width:100%;"
   />
