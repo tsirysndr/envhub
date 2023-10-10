@@ -1,0 +1,757 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /home/tsirysndr/Documents/github/envhub/demo
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 112
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 26
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "agave Nerd Font Mono, Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 843
+    content: "nvm is not compatible with the \"npm_config_prefix\" environment variable: currently set to \"/home/tsirysndr/.pkgx/nodejs.org/v20.8.0\"\r\nRun `unset npm_config_prefix` to unset it.\r\n"
+  - delay: 46
+    content: "\e[?25l\e[?7l\e[37m\e[0m\e[1m       _,met$$$$$gg.\r\n    ,g$$$$$$$$$$$$$$$P.\r\n  ,g$$P\"     \"\"\"Y$$.\".\r\n ,$$P'              `$$$.\r\n',$$P       ,ggs.     `$$b:\r\n`d$$'     ,$P\"'   \e[0m\e[31m\e[1m.\e[37m\e[0m\e[1m    $$$\r\n $$P      d$'     \e[0m\e[31m\e[1m,\e[37m\e[0m\e[1m    $$P\r\n $$:      $$.   \e[0m\e[31m\e[1m-\e[37m\e[0m\e[1m    ,d$$'\r\n $$;      Y$b._   _,d$P'\r\n Y$$.    \e[0m\e[31m\e[1m`.\e[37m\e[0m\e[1m`\"Y$$$$P\"'\r\n\e[37m\e[0m\e[1m `$$b      \e[0m\e[31m\e[1m\"-.__\r\n\e[37m\e[0m\e[1m  `Y$$\r\n   `Y$$.\r\n     `$$b.\r\n       `Y$$b.\r\n          `\"Y$b._\r\n              `\"\"\"\e[0m\r\n\e[17A\e[9999999D\e[30C\e[0m\e[1m\e[31m\e[1mtsirysndr\e[0m@\e[31m\e[1mpenguin\e[0m \r\n\e[30C\e[0m-----------------\e[0m \r\n\e[30C\e[0m\e[31m\e[1mOS\e[0m\e[0m:\e[0m Debian GNU/Linux 12 (bookworm) on Chrome OS x86_64\e[0m \r\n\e[30C\e[0m\e[31m\e[1mHost\e[0m\e[0m:\e[0m crosvm\e[0m \r\n\e[30C\e[0m\e[31m\e[1mKernel\e[0m\e[0m:\e[0m 5.15.124-20277-g2cec44066980\e[0m \r\n"
+  - delay: 5
+    content: "\e[30C\e[0m\e[31m\e[1mUptime\e[0m\e[0m:\e[0m 3 days, 6 mins\e[0m \r\n"
+  - delay: 125
+    content: "\e[30C\e[0m\e[31m\e[1mPackages\e[0m\e[0m:\e[0m 1016 (dpkg), 200 (brew), 557 (nix-user), 48 (nix-default)\e[0m \r\n\e[30C\e[0m\e[31m\e[1mShell\e[0m\e[0m:\e[0m bash 5.2.15\e[0m \r\n"
+  - delay: 14
+    content: "\e[30C\e[0m\e[31m\e[1mDE\e[0m\e[0m:\e[0m Generic\e[0m \r\n"
+  - delay: 30
+    content: "\e[30C\e[0m\e[31m\e[1mTheme\e[0m\e[0m:\e[0m CrosAdapta [GTK2/3]\e[0m \r\n"
+  - delay: 13
+    content: "\e[30C\e[0m\e[31m\e[1mIcons\e[0m\e[0m:\e[0m Adwaita [GTK2/3]\e[0m \r\n"
+  - delay: 10
+    content: "\e[30C\e[0m\e[31m\e[1mTerminal\e[0m\e[0m:\e[0m node\e[0m \r\n"
+  - delay: 12
+    content: "\e[30C\e[0m\e[31m\e[1mCPU\e[0m\e[0m:\e[0m 11th Gen Intel i7-1165G7 (8) @ 2.803GHz\e[0m \r\n"
+  - delay: 13
+    content: "\e[30C\e[0m\e[31m\e[1mMemory\e[0m\e[0m:\e[0m 7902MiB / 14358MiB\e[0m \r\n\r\n\e[30C\e[30m\e[40m   \e[31m\e[41m   \e[32m\e[42m   \e[33m\e[43m   \e[34m\e[44m   \e[35m\e[45m   \e[36m\e[46m   \e[37m\e[47m   \e[m\r\n\e[30C\e[38;5;8m\e[48;5;8m   \e[38;5;9m\e[48;5;9m   \e[38;5;10m\e[48;5;10m   \e[38;5;11m\e[48;5;11m   \e[38;5;12m\e[48;5;12m   \e[38;5;13m\e[48;5;13m   \e[38;5;14m\e[48;5;14m   \e[38;5;15m\e[48;5;15m   \e[m\r\n\r\n\r\n\e[?25h\e[?7h"
+  - delay: 48
+    content: "\e7\r\e[K[▽]\e[6n\r\e[K[▶]\e[6n\r\e[K[龼]\e[6n\r\e[K[鿄]\e[6n\r\e[K[ㆸ]\e[6n\r\e[K[ힰ]\e[6n\r\e[K[゙]\e[6n\r\e[K[鿍]\e[6n\r\e[K[\U0001F93B]\e[6n\r\e[K[ㄮ]\e[6n\r\e[K[ㄯ]\e[6n\r\e[K[\U00016FE2]\e[6n\r\e[K[㋿]\e[6n\r\e[K[ㆻ]\e[6n\r\e[K[鿽]\e[6n\r\e[K[\U0001B132]\e[6n\r\e[K\e8\e[?2004h\e[?25h"
+  - delay: 30
+    content: "\e[?25l\r\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 73 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 43
+    content: "\e[?25l\e7\e[1;2r\e[2;1H\e[1B\e[6n\e[;r\e[2;1H\e[1B\e[6n\e[r\e8\e[>c\e(B\e[m\e[1A\r\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 73 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 64
+    content: "\e[?25l\e[>4;1m\e[>4;2m\e[m\e(B\e[m\e[1A\r\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 73 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 2079
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203mt\e(B\e[m\e[K\e[?25h"
+  - delay: 74
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;91m\e[0;91mt\e[0;38;5;238;48;5;254mype rtxx > /dev/null || (type apt  && sudo apt install libssl-dev -y)\e(B\e[m\e[K\e(B\e[m\e[69D\e[?25h"
+  - delay: 18
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;32m\e[0;32mtr\e(B\e[m\e[K\e[?25h"
+  - delay: 229
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203mtre\e(B\e[m\e[K\e[?25h"
+  - delay: 63
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;32m\e[0;32mtre\e[0;38;5;238;48;5;254md\e(B\e[m\e[K\e(B\e[m\e[1D\e[?25h"
+  - delay: 71
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;32m\e[0;32mtree\e(B\e[m\e[K\e[?25h"
+  - delay: 1313
+    content: "\e[?25l\e(B\e[m\e[4D\e[0;32m\e[0;32mtree\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 984
+    content: "\e[?25l\e(B\e[m\e[5D\e[0;32m\e[0;32mtree\e[0m \e[0;36m-\e(B\e[m\e[K\e[?25h"
+  - delay: 100
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;36m\e[0;36m-a\e(B\e[m\e[K\e[?25h"
+  - delay: 163
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;36m\e[0;36m-a\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 420
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;36m\e[0;36m-a\e[0m \e[0;4;38;5;26m.\e(B\e[m\e[K\e[?25h"
+  - delay: 657
+    content: "\e[?25l\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 53
+    content: "\e[01;34m.\e[0m\r\n├── \e[01;34mdotfiles\e[0m\r\n│\_\_ ├── .bashrc.backup\r\n│\_\_ └── .screenrc\r\n├── envhub.hcl\r\n└── README.md\r\n\r\n2 directories, 4 files\r\n"
+  - delay: 6
+    content: "\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K"
+  - delay: 5
+    content: "\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 62
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 73 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 1481
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203mb\e(B\e[m\e[K\e[?25h"
+  - delay: 31
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;32m\e[0;32mb\e[0;38;5;238;48;5;254munx create-nx-workspace@latest demo\e(B\e[m\e[K\e(B\e[m\e[35D\e[?25h"
+  - delay: 52
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203mba\e(B\e[m\e[K\e[?25h"
+  - delay: 22
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;32m\e[0;32mba\e[0;38;5;238;48;5;254mt Crosfile.hcl \e(B\e[m\e[K\e(B\e[m\e[15D\e[?25h"
+  - delay: 154
+    content: "\e[?25l\e[0;32mt\e[0;38;5;238;48;5;254m Crosfile.hcl \e(B\e[m\e[14D\e[?25h"
+  - delay: 264
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;32m\e[0;32mbat\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 22
+    content: "\e[?25l\e(B\e[m\e[4D\e[0;32m\e[0;32mbat\e[0m \e[0;38;5;238;48;5;254mCrosfile.hcl \e(B\e[m\e[K\e(B\e[m\e[13D\e[?25h"
+  - delay: 506
+    content: "\e[?25l\e(B\e[m\e[4D\e[0;32m\e[0;32mbat\e[0m e\e(B\e[m\e[K\e[?25h"
+  - delay: 57
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;4m\e[0;4me\e[0;38;5;238;48;5;254mnvhub.hcl\e(B\e[m\e[K\e(B\e[m\e[9D\e[?25h"
+  - delay: 66
+    content: "\e[?25l\e[0;4mn\e[0;38;5;238;48;5;254mvhub.hcl\e(B\e[m\e[8D\e[?25h"
+  - delay: 193
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;4m\e[0;4menvhub.hcl\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 487
+    content: "\e[?25l\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 69
+    content: "\r\e[38;5;238m───────┬────────────────────────────────────────────────────────────────────────────────────────────────────────\e[0m\e[m\r\n       \e[38;5;238m│ \e[0mFile: \e[1menvhub.hcl\e[0m\e[m\r\n\e[38;5;238m───────┼────────────────────────────────────────────────────────────────────────────────────────────────────────\e[0m\e[m\r\n\e[38;5;238m   1\e[0m   \e[38;5;238m│\e[0m \e[38;5;231mpackages\e[0m\e[38;5;231m \e[0m\e[38;5;203m= \e[0m\e[38;5;231m[\e[0m\e[m\r\n\e[38;5;238m   2\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m  \e[0m\e[38;5;186m\"\e[0m\e[38;5;186mhello\e[0m\e[38;5;186m\"\e[0m\e[m\r\n\e[38;5;238m   3\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m]\e[0m\e[m\r\n\e[38;5;238m   4\e[0m   \e[38;5;238m│\e[0m \e[m\r\n\e[38;5;238m   5\e[0m   \e[38;5;238m│\e[0m \e[38;5;231mfile \e[0m\e[38;5;186m\"\e[0m\e[38;5;186m.screenrc\e[0m\e[38;5;186m\"\e[0m\e[38;5;231m \e[0m\e[38;5;231m{\e[0m\e[m\r\n\e[38;5;238m   6\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m  \e[0m\e[38;5;186msource\e[0m\e[38;5;231m \e[0m\e[38;5;203m=\e[0m\e[38;5;231m \e[0m\e[38;5;186m\"\e[0m\e[38;5;186mdotfiles/.screenrc\e[0m\e[38;5;186m\"\e[0m\e[m\r\n\e[38;5;238m   7\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m}\e[0m\e[m\r\n\e[38;5;238m   8\e[0m   \e[38;5;238m│\e[0m \e[m\r\n\e[38;5;238m   9\e[0m   \e[38;5;238m│\e[0m \e[38;5;231mfile \e[0m\e[38;5;186m\"\e[0m\e[38;5;186m.bashrc.backup\e[0m\e[38;5;186m\"\e[0m\e[38;5;231m \e[0m\e[38;5;231m{\e[0m\e[m\r\n\e[38;5;238m  10\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m  \e[0m\e[38;5;186msource\e[0m\e[38;5;231m \e[0m\e[38;5;203m=\e[0m\e[38;5;231m \e[0m\e[38;5;186m\"\e[0m\e[38;5;186mdotfiles/.bashrc.backup\e[0m\e[38;5;186m\"\e[0m\e[m\r\n\e[38;5;238m  11\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m}\e[0m\e[m\r\n\e[38;5;238m  12\e[0m   \e[38;5;238m│\e[0m \e[m\r\n\e[38;5;238m  13\e[0m   \e[38;5;238m│\e[0m \e[38;5;231mfile \e[0m\e[38;5;186m\"\e[0m\e[38;5;186m.gradle/gradle.properties\e[0m\e[38;5;186m\"\e[0m\e[38;5;231m \e[0m\e[38;5;231m{\e[0m\e[m\r\n\e[38;5;238m  14\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m  \e[0m\e[38;5;186mcontent\e[0m\e[38;5;231m \e[0m\e[38;5;203m=\e[0m\e[38;5;231m \e[0m\e[38;5;186m\"\e[0m\e[38;5;186morg.gradle.daemon=true\e[0m\e[38;5;186m\"\e[0m\e[m\r\n\e[38;5;238m  15\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m}\e[0m\e[m\r\n\e[38;5;238m───────┴────────────────────────────────────────────────────────────────────────────────────────────────────────\e[0m\e[m\r\n\r\e[K"
+  - delay: 7
+    content: "\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K"
+  - delay: 8
+    content: "\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 68
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 73 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 1563
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203me\e(B\e[m\e[K\e[?25h"
+  - delay: 37
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;91m\e[0;91me\e[0;38;5;238;48;5;254mcho $HELLO\e(B\e[m\e[K\e(B\e[m\e[10D\e[?25h"
+  - delay: 271
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203men\e(B\e[m\e[K\e[?25h"
+  - delay: 66
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;91m\e[0;91men\e[0;38;5;238;48;5;254mable\e(B\e[m\e[K\e(B\e[m\e[4D\e[?25h"
+  - delay: 60
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;32m\e[0;32menv\e(B\e[m\e[K\e[?25h"
+  - delay: 141
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203menvh\e(B\e[m\e[K\e[?25h"
+  - delay: 61
+    content: "\e[?25l\e(B\e[m\e[4D\e[0;32m\e[0;32menvh\e[0;38;5;238;48;5;254mub\e(B\e[m\e[K\e(B\e[m\e[2D\e[?25h"
+  - delay: 658
+    content: "\e[?25l\e[0;32mu\e[0;38;5;238;48;5;254mb\e(B\e[m\e[1D\e[?25h"
+  - delay: 114
+    content: "\e[?25l\e[0;32mb\e[?25h"
+  - delay: 156
+    content: "\e[?25l\e(B\e[m\e[6D\e[0;32m\e[0;32menvhub\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 486
+    content: "\e[?25l\e(B\e[m\e[7D\e[0;32m\e[0;32menvhub\e[0m \e[0;36m-\e(B\e[m\e[K\e[?25h"
+  - delay: 117
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;36m\e[0;36m--\e(B\e[m\e[K\e[?25h"
+  - delay: 316
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;36m\e[0;36m--h\e(B\e[m\e[K\e[?25h"
+  - delay: 148
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;36m\e[0;36m--he\e(B\e[m\e[K\e[?25h"
+  - delay: 162
+    content: "\e[?25l\e(B\e[m\e[4D\e[0;36m\e[0;36m--hel\e(B\e[m\e[K\e[?25h"
+  - delay: 52
+    content: "\e[?25l\e(B\e[m\e[5D\e[0;36m\e[0;36m--help\e(B\e[m\e[K\e[?25h"
+  - delay: 597
+    content: "\e[?25l\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 48
+    content: "\e[0m\e[0m\e[0m\e[0m\e[0m\e[32menvhub\e[0m\e[0m \e[0m\e[0m0.1.0\e[0m\e[0m\r\n\e[0m\e[0mTsiry Sandratraina <tsiry.sndr@fluentci.io>\e[0m\e[0m\r\n\e[0m\e[0m\e[0m\e[0m\r\n           ______           __  __      __\r\n          / ____/___ _   __/ / / /_  __/ /_\r\n         / __/ / __ \\ | / / /_/ / / / / __ \\\r\n        / /___/ / / / |/ / __  / /_/ / /_/ /\r\n       /_____/_/ /_/|___/_/ /_/\\__,_/_.___/\r\n\r\n\r\n    Manage your dotfiles and packages with ease \U0001F680 ✨\e[0m\e[0m\r\n\e[0m\e[0m\r\n\e[0m\e[0m\e[33mUSAGE:\e[0m\e[0m\r\n    \e[0m\e[0menvhub [SUBCOMMAND]\e[0m\e[0m\r\n\r\n\e[0m\e[0m\e[33mOPTIONS:\r\n\e[0m\e[0m    \e[0m\e[0m\e[32m-h\e[0m\e[0m, \e[0m\e[0m\e[32m--help\e[0m\e[0m       \e[0m\e[0mPrint help information\e[0m\e[0m\r\n\e[0m\e[0m    \e[0m\e[0m\e[32m-V\e[0m\e[0m, \e[0m\e[0m\e[32m--version\e[0m\e[0m    \e[0m\e[0mPrint version information\e[0m\e[0m\r\n\r\n\e[0m\e[0m\e[33mSUBCOMMANDS\e[0m\e[0m\e[33m:\r\n\e[0m\e[0m    \e[0m\e[0m\e[32menv\e[0m\e[0m        \e[0m\e[0mManage environment variables in the environment\e[0m\e[0m\r\n\e[0m\e[0m    \e[0m\e[0m\e[32mfile\e[0m\e[0m       \e[0m\e[0mManage files (dotfiles) in the environment\e[0m\e[0m\r\n\e[0m\e[0m    \e[0m\e[0m\e[32mhelp\e[0m\e[0m       \e[0m\e[0mPrint this message or the help of the given subcommand(s)\e[0m\e[0m\r\n\e[0m\e[0m    \e[0m\e[0m\e[32minit\e[0m\e[0m       \e[0m\e[0mInitialize the environment\e[0m\e[0m\r\n\e[0m\e[0m    \e[0m\e[0m\e[32mpackage\e[0m\e[0m    \e[0m\e[0mManage packages in the environment\e[0m\e[0m\r\n\e[0m\e[0m    \e[0m\e[0m\e[32mstatus\e[0m\e[0m     \e[0m\e[0mShow the current environment\e[0m\e[0m\r\n\e[0m\e[0m    \e[0m\e[0m\e[32munuse\e[0m\e[0m      \e[0m\e[0mRestore the previous environment\e[0m\e[0m\r\n\e[0m\e[0m    \e[0m\e[0m\e[32muse\e[0m\e[0m        \e[0m\e[0mEnable an environment, can be a remote repository or a local directory\e[0m\e[0m\e[0m\e[0m\e[0m\e[0m\r\n\e[0m\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 62
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 73 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 990
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203me\e(B\e[m\e[K\e[?25h"
+  - delay: 22
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;32m\e[0;32me\e[0;38;5;238;48;5;254mnvhub --help\e(B\e[m\e[K\e(B\e[m\e[12D\e[?25h"
+  - delay: 79
+    content: "\e[?25l\e[0;32mn\e[0;38;5;238;48;5;254mvhub --help\e(B\e[m\e[11D\e[?25h"
+  - delay: 135
+    content: "\e[?25l\e[0;32mv\e[0;38;5;238;48;5;254mhub --help\e(B\e[m\e[10D\e[?25h"
+  - delay: 98
+    content: "\e[?25l\e[0;32mh\e[0;38;5;238;48;5;254mub --help\e(B\e[m\e[9D\e[?25h"
+  - delay: 160
+    content: "\e[?25l\e[0;32mu\e[0;38;5;238;48;5;254mb --help\e(B\e[m\e[8D\e[?25h"
+  - delay: 103
+    content: "\e[?25l\e[0;32mb\e[0;38;5;238;48;5;254m --help\e(B\e[m\e[7D\e[?25h"
+  - delay: 213
+    content: "\e[?25l\e(B\e[m\e[6D\e[0;32m\e[0;32menvhub\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 19
+    content: "\e[?25l\e(B\e[m\e[7D\e[0;32m\e[0;32menvhub\e[0m \e[0;38;5;238;48;5;254m--help\e(B\e[m\e[K\e(B\e[m\e[6D\e[?25h"
+  - delay: 2046
+    content: "\e[?25l\e[0;36m\e[0;36m-\e[0;38;5;238;48;5;254m-help\e(B\e[m\e[5D\e[?25h"
+  - delay: 158
+    content: "\e[?25l\e[0;36m-\e[0;38;5;238;48;5;254mhelp\e(B\e[m\e[4D\e[?25h"
+  - delay: 613
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;36m\e[0;36m-\e(B\e[m\e[K\e[?25h"
+  - delay: 178
+    content: "\e[?25l\e(B\e[m\e[8D\e[0;32m\e[0;32menvhub\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 1467
+    content: "\e[?25l\e(B\e[m\e[7D\e[0;32m\e[0;32menvhub\e[0m u\e(B\e[m\e[K\e[?25h"
+  - delay: 72
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mu\e[0;38;5;238;48;5;254m [envhub.hcl] \e(B\e[m\e[K\e(B\e[m\e[14D\e[?25h"
+  - delay: 21
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mus\e(B\e[m\e[K\e[?25h"
+  - delay: 65
+    content: "\e[?25l\e(B\e[m\e[2D\e[0muse\e(B\e[m\e[K\e[?25h"
+  - delay: 208
+    content: "\e[?25l\e(B\e[m\e[3D\e[0muse \e(B\e[m\e[K\e[?25h"
+  - delay: 403
+    content: "\e[?25l\e(B\e[m\e[4D\e[0muse \e[0;4;38;5;26m.\e(B\e[m\e[K\e[?25h"
+  - delay: 1831
+    content: "\e[?25l\e(B\e[m\e[5D\e[0muse \e(B\e[m\e[K\e[?25h"
+  - delay: 135
+    content: "\e[?25l\e(B\e[m\e[4D\e[0muse\e(B\e[m\e[K\e[?25h"
+  - delay: 133
+    content: "\e[?25l\e(B\e[m\e[3D\e[0mus\e(B\e[m\e[K\e[?25h"
+  - delay: 127
+    content: "\e[?25l\e(B\e[m\e[2D\e[0mu\e(B\e[m\e[K\e[?25h"
+  - delay: 136
+    content: "\e[?25l\e(B\e[m\e[8D\e[0;32m\e[0;32menvhub\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 362
+    content: "\e[?25l\e(B\e[m\e[7D\e[0;32m\e[0;32menvhub\e[0m s\e(B\e[m\e[K\e[?25h"
+  - delay: 71
+    content: "\e[?25l\e(B\e[m\e[1D\e[0ms\e[0;38;5;238;48;5;254m [dotfiles] \e(B\e[m\e[K\e(B\e[m\e[12D\e[?25h"
+  - delay: 157
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mst\e(B\e[m\e[K\e[?25h"
+  - delay: 28
+    content: "\e[?25l\e(B\e[m\e[2D\e[0msta\e(B\e[m\e[K\e[?25h"
+  - delay: 92
+    content: "\e[?25l\e(B\e[m\e[3D\e[0mstat\e(B\e[m\e[K\e[?25h"
+  - delay: 130
+    content: "\e[?25l\e(B\e[m\e[4D\e[0mstatu\e(B\e[m\e[K\e[?25h"
+  - delay: 118
+    content: "\e[?25l\e(B\e[m\e[5D\e[0mstatus\e(B\e[m\e[K\e[?25h"
+  - delay: 627
+    content: "\e[?25l\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 48
+    content: "No environment is currently in use\r\n\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K"
+  - delay: 5
+    content: "\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 61
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 73 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 1103
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203me\e(B\e[m\e[K\e[?25h"
+  - delay: 22
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;32m\e[0;32me\e[0;38;5;238;48;5;254mnvhub status\e(B\e[m\e[K\e(B\e[m\e[12D\e[?25h"
+  - delay: 23
+    content: "\e[?25l\e[0;32mn\e[0;38;5;238;48;5;254mvhub status\e(B\e[m\e[11D\e[?25h"
+  - delay: 150
+    content: "\e[?25l\e[0;32mv\e[0;38;5;238;48;5;254mhub status\e(B\e[m\e[10D\e[?25h"
+  - delay: 782
+    content: "\e[?25l\e[0;32mh\e[0;38;5;238;48;5;254mub status\e(B\e[m\e[9D\e[?25h"
+  - delay: 82
+    content: "\e[?25l\e[0;32mu\e[0;38;5;238;48;5;254mb status\e(B\e[m\e[8D\e[?25h"
+  - delay: 106
+    content: "\e[?25l\e[0;32mb\e[0;38;5;238;48;5;254m status\e(B\e[m\e[7D\e[?25h"
+  - delay: 236
+    content: "\e[?25l\e(B\e[m\e[6D\e[0;32m\e[0;32menvhub\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 20
+    content: "\e[?25l\e(B\e[m\e[7D\e[0;32m\e[0;32menvhub\e[0m \e[0;38;5;238;48;5;254mstatus\e(B\e[m\e[K\e(B\e[m\e[6D\e[?25h"
+  - delay: 2795
+    content: "\e[?25l\e(B\e[m\e[7D\e[0;32m\e[0;32menvhub\e[0m u\e(B\e[m\e[K\e[?25h"
+  - delay: 73
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mu\e[0;38;5;238;48;5;254m [envhub.hcl] \e(B\e[m\e[K\e(B\e[m\e[14D\e[?25h"
+  - delay: 65
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mus\e(B\e[m\e[K\e[?25h"
+  - delay: 72
+    content: "\e[?25l\e(B\e[m\e[2D\e[0muse\e(B\e[m\e[K\e[?25h"
+  - delay: 250
+    content: "\e[?25l\e(B\e[m\e[3D\e[0muse \e(B\e[m\e[K\e[?25h"
+  - delay: 823
+    content: "\e[?25l\e(B\e[m\e[4D\e[0muse \e[0;4;38;5;26m.\e(B\e[m\e[K\e[?25h"
+  - delay: 620
+    content: "\e[?25l\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 75
+    content: "\r\e[0m\e[K"
+  - delay: 44
+    content: "\r\e[K"
+  - delay: 31
+    content: "\r\e[0m\e[K"
+  - delay: 8
+    content: "\r\e[K\r\e[0m\e[K\r\e[K"
+  - delay: 20
+    content: "\r\e[0m\e[K"
+  - delay: 7
+    content: "\r\e[K\r\e[0m\e[K\r\e[K"
+  - delay: 18
+    content: "\r\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 51
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 51
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 51
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 12
+    content: "\r\e[Ktrace: \e[1;31mwarning: optionsDocBook is deprecated since 23.11 and will be removed in 24.05\e[0m\e[0m\r\n\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 38
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 46
+    content: "\r\e[Ktrace: \e[1;31mwarning: optionsDocBook is deprecated since 23.11 and will be removed in 24.05\e[0m\e[0m\r\n\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K\r\e[Ktrace: \e[1;31mwarning: optionsDocBook is deprecated since 23.11 and will be removed in 24.05\e[0m\e[0m\r\n\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".activationPackage'\e[0m\e[K"
+  - delay: 50
+    content: "\r[\e[32;1m0\e[0m/1 built] \e[0m\e[K"
+  - delay: 42
+    content: "\r\e[K"
+  - delay: 51
+    content: "Starting Home Manager activation\r\n"
+  - delay: 72
+    content: "\e[1m\e[36mActivating checkFilesChanged\r\n\e(B\e[m\e[1m\e[36mActivating checkLinkTargets\r\n\e(B\e[m"
+  - delay: 15
+    content: "\e[1m\e[36mActivating writeBoundary\r\n\e(B\e[m\e[1m\e[36mActivating installPackages\r\n\e(B\e[m"
+  - delay: 21
+    content: "nix profile remove /nix/store/qzv1js9csy0wpqj2nsv2qp1wk1m96z9w-home-manager-path\r\n"
+  - delay: 16
+    content: "\r\e[0m\e[K\r\e[Kremoving 'home-manager-path'\e[0m\r\n\r\e[0m\e[K"
+  - delay: 13
+    content: "\r\e[K"
+  - delay: 18
+    content: "\r\e[0m\e[K"
+  - delay: 32
+    content: "\r\e[K\e[1m\e[36mActivating linkGeneration\r\n\e(B\e[mCleaning up orphan links from /home/tsirysndr\r\n"
+  - delay: 15
+    content: "Creating profile generation 66\r\n"
+  - delay: 46
+    content: "Creating home file links in /home/tsirysndr\r\n"
+  - delay: 20
+    content: "\e[1m\e[36mActivating onFilesChange\r\n\e(B\e[m\e[1m\e[36mActivating reloadSystemd\r\n\e(B\e[m"
+  - delay: 92
+    content: "\r\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".config.news.json.o\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".config.news.json.o\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".config.news.json.o\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".config.news.json.o\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".config.news.json.o\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".config.news.json.o\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".config.news.json.o\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".config.news.json.o\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/home/tsirysndr/.envhub/local/demo#homeConfigurations.\"tsirysndr\".config.news.json.o\e[0m\e[K"
+  - delay: 47
+    content: "\r\e[K"
+  - delay: 86
+    content: "\e[92m[✓]\e[39m Successfully used environment: \e[92m/home/tsirysndr/.envhub/local/demo\e[39m\r\n\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K"
+  - delay: 5
+    content: "\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 66
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 73 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 1372
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203me\e(B\e[m\e[K\e[?25h"
+  - delay: 28
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;32m\e[0;32me\e[0;38;5;238;48;5;254mnvhub use .\e(B\e[m\e[K\e(B\e[m\e[11D\e[?25h"
+  - delay: 52
+    content: "\e[?25l\e[0;32mn\e[0;38;5;238;48;5;254mvhub use .\e(B\e[m\e[10D\e[?25h"
+  - delay: 120
+    content: "\e[?25l\e[0;32mv\e[0;38;5;238;48;5;254mhub use .\e(B\e[m\e[9D\e[?25h"
+  - delay: 135
+    content: "\e[?25l\e[0;32mh\e[0;38;5;238;48;5;254mub use .\e(B\e[m\e[8D\e[?25h"
+  - delay: 205
+    content: "\e[?25l\e[0;32mu\e[0;38;5;238;48;5;254mb use .\e(B\e[m\e[7D\e[?25h"
+  - delay: 159
+    content: "\e[?25l\e[0;32mb\e[0;38;5;238;48;5;254m use .\e(B\e[m\e[6D\e[?25h"
+  - delay: 260
+    content: "\e[?25l\e(B\e[m\e[6D\e[0;32m\e[0;32menvhub\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 26
+    content: "\e[?25l\e(B\e[m\e[7D\e[0;32m\e[0;32menvhub\e[0m \e[0;38;5;238;48;5;254muse .\e(B\e[m\e[K\e(B\e[m\e[5D\e[?25h"
+  - delay: 255
+    content: "\e[?25l\e(B\e[m\e[7D\e[0;32m\e[0;32menvhub\e[0m s\e(B\e[m\e[K\e[?25h"
+  - delay: 25
+    content: "\e[?25l\e(B\e[m\e[1D\e[0ms\e[0;38;5;238;48;5;254mtatus\e(B\e[m\e[K\e(B\e[m\e[5D\e[?25h"
+  - delay: 518
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mstatus\e(B\e[m\e[K\e[?25h"
+  - delay: 247
+    content: "\e[?25l\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 49
+    content: "\e[92m[✓]\e[39m Environment: \e[92m/home/tsirysndr/.envhub/local/demo\e[39m\r\n\e[92m[✓]\e[39m Symlink manager: \e[92mhome-manager\e[39m\r\n\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K"
+  - delay: 5
+    content: "\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 65
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 73 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 1163
+    content: "\e[?25l\e[0;32m\e[0;32mw\e(B\e[m\e[K\e[?25h"
+  - delay: 23
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;32m\e[0;32mw\e[0;38;5;238;48;5;254mhich ginstall\e(B\e[m\e[K\e(B\e[m\e[13D\e[?25h"
+  - delay: 32
+    content: "\e[?25l\e[0;32mh\e[0;38;5;238;48;5;254mich ginstall\e(B\e[m\e[12D\e[?25h"
+  - delay: 65
+    content: "\e[?25l\e[0;32mi\e[0;38;5;238;48;5;254mch ginstall\e(B\e[m\e[11D\e[?25h"
+  - delay: 68
+    content: "\e[?25l\e[0;32mc\e[0;38;5;238;48;5;254mh ginstall\e(B\e[m\e[10D\e[?25h"
+  - delay: 85
+    content: "\e[?25l\e[0;32mh\e[0;38;5;238;48;5;254m ginstall\e(B\e[m\e[9D\e[?25h"
+  - delay: 100
+    content: "\e[?25l\e(B\e[m\e[5D\e[0;32m\e[0;32mwhich\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 20
+    content: "\e[?25l\e(B\e[m\e[6D\e[0;32m\e[0;32mwhich\e[0m \e[0;38;5;238;48;5;254mginstall\e(B\e[m\e[K\e(B\e[m\e[8D\e[?25h"
+  - delay: 779
+    content: "\e[?25l\e(B\e[m\e[6D\e[0;32m\e[0;32mwhich\e[0m h\e(B\e[m\e[K\e[?25h"
+  - delay: 19
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mh\e[0;38;5;238;48;5;254mello\e(B\e[m\e[K\e(B\e[m\e[4D\e[?25h"
+  - delay: 13
+    content: "\e[?25l\e[0me\e[0;38;5;238;48;5;254mllo\e(B\e[m\e[3D\e[?25h"
+  - delay: 441
+    content: "\e[?25l\e[0ml\e[0;38;5;238;48;5;254mlo\e(B\e[m\e[2D\e[?25h"
+  - delay: 142
+    content: "\e[?25l\e[0ml\e[0;38;5;238;48;5;254mo\e(B\e[m\e[1D\e[?25h"
+  - delay: 230
+    content: "\e[?25l\e[0mo\e[?25h"
+  - delay: 267
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mo\e(B\e[m\e[K\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 43
+    content: "/home/tsirysndr/.nix-profile/bin/hello\r\n\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K"
+  - delay: 5
+    content: "\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 65
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 73 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 1648
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203ml\e(B\e[m\e[K\e[?25h"
+  - delay: 15
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;36m\e[0;36ml\e[0;38;5;238;48;5;254ms\e(B\e[m\e[K\e(B\e[m\e[1D\e[?25h"
+  - delay: 309
+    content: "\e[?25l\e[0;36ms\e[?25h"
+  - delay: 976
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;36m\e[0;36mls\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 29
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;36m\e[0;36mls\e[0m \e[0;38;5;238;48;5;254m~/.local/share/rtx/bin\e(B\e[m\e[K\e(B\e[m\e[22D\e[?25h"
+  - delay: 123
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;36m\e[0;36mls\e[0m \e[0;36m-\e(B\e[m\e[K\e[?25h"
+  - delay: 1938
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;36m\e[0;36m-l\e(B\e[m\e[K\e[?25h"
+  - delay: 35
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;36m\e[0;36m-l\e[0;38;5;238;48;5;254m /home/tsirysndr/.local/share/rtx/shims\e(B\e[m\e[K\e(B\e[m\e[39D\e[?25h"
+  - delay: 1627
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;36m\e[0;36m-la\e(B\e[m\e[K\e[?25h"
+  - delay: 177
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;36m\e[0;36m-la\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 660
+    content: "\e[?25l\e(B\e[m\e[4D\e[0;36m\e[0;36m-la\e[0m \e[0;4;38;5;26m~\e(B\e[m\e[K\e[?25h"
+  - delay: 59
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;4;97;40m\e[0;4;97;40m~\e[0;38;5;238;48;5;254mandroid-everybody\e(B\e[m\e[K\e(B\e[m\e[17D\e[?25h"
+  - delay: 163
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;4;38;5;26m\e[0;4;38;5;26m~/\e(B\e[m\e[K\e[?25h"
+  - delay: 64
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;4;38;5;26m\e[0;4;38;5;26m~/\e[0;38;5;238;48;5;254mApplications\e(B\e[m\e[K\e(B\e[m\e[12D\e[?25h"
+  - delay: 1055
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;4;38;5;26m\e[0;4;38;5;26m~/.\e(B\e[m\e[K\e[?25h"
+  - delay: 160
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;4;38;5;26m\e[0;4;38;5;26m~/\e[0m.s\e(B\e[m\e[K\e[?25h"
+  - delay: 45
+    content: "\e[?25l\e(B\e[m\e[4D\e[0;4;38;5;26m\e[0;4;38;5;26m~/\e[0;4;36m.s\e[0;38;5;238;48;5;254mcreenrc\e(B\e[m\e[K\e(B\e[m\e[7D\e[?25h"
+  - delay: 141
+    content: "\e[?25l\e[0;4;36mc\e[0;38;5;238;48;5;254mreenrc\e(B\e[m\e[6D\e[?25h"
+  - delay: 522
+    content: "\e[?25l\e[0;4;36mr\e[0;38;5;238;48;5;254meenrc\e(B\e[m\e[5D\e[?25h"
+  - delay: 292
+    content: "\e[?25l\e(B\e[m\e[6D\e[0;4;38;5;26m\e[0;4;38;5;26m~/\e[0;4;36m.screenrc\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 53
+    content: "\a"
+  - delay: 249
+    content: "\e[?25l\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 47
+    content: "lrwxrwxrwx 1 tsirysndr tsirysndr 72 Oct 10 11:03 \e[0m\e[01;36m/home/tsirysndr/.screenrc\e[0m -> /nix/store/9zj3015agdmj283nw0737lzidlqank0h-home-manager-files/.screenrc\r\n\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 80
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 74 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 2725
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203me\e(B\e[m\e[K\e[?25h"
+  - delay: 23
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;32m\e[0;32me\e[0;38;5;238;48;5;254mnvhub status\e(B\e[m\e[K\e(B\e[m\e[12D\e[?25h"
+  - delay: 190
+    content: "\e[?25l\e[0;32mn\e[0;38;5;238;48;5;254mvhub status\e(B\e[m\e[11D\e[?25h"
+  - delay: 258
+    content: "\e[?25l\e[0;32mv\e[0;38;5;238;48;5;254mhub status\e(B\e[m\e[10D\e[?25h"
+  - delay: 568
+    content: "\e[?25l\e[0;32mh\e[0;38;5;238;48;5;254mub status\e(B\e[m\e[9D\e[?25h"
+  - delay: 103
+    content: "\e[?25l\e[0;32mu\e[0;38;5;238;48;5;254mb status\e(B\e[m\e[8D\e[?25h"
+  - delay: 169
+    content: "\e[?25l\e[0;32mb\e[0;38;5;238;48;5;254m status\e(B\e[m\e[7D\e[?25h"
+  - delay: 420
+    content: "\e[?25l\e(B\e[m\e[6D\e[0;32m\e[0;32menvhub\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 21
+    content: "\e[?25l\e(B\e[m\e[7D\e[0;32m\e[0;32menvhub\e[0m \e[0;38;5;238;48;5;254mstatus\e(B\e[m\e[K\e(B\e[m\e[6D\e[?25h"
+  - delay: 896
+    content: "\e[?25l\e(B\e[m\e[7D\e[0;32m\e[0;32menvhub\e[0m u\e(B\e[m\e[K\e[?25h"
+  - delay: 27
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mu\e[0;38;5;238;48;5;254mse .\e(B\e[m\e[K\e(B\e[m\e[4D\e[?25h"
+  - delay: 73
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mun\e(B\e[m\e[K\e[?25h"
+  - delay: 435
+    content: "\e[?25l\e(B\e[m\e[2D\e[0munu\e(B\e[m\e[K\e[?25h"
+  - delay: 345
+    content: "\e[?25l\e(B\e[m\e[3D\e[0munus\e(B\e[m\e[K\e[?25h"
+  - delay: 199
+    content: "\e[?25l\e(B\e[m\e[4D\e[0munuse\e(B\e[m\e[K\e[?25h"
+  - delay: 139
+    content: "\e[?25l\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 67
+    content: "\r\e[0m\e[K"
+  - delay: 45
+    content: "\r\e[K"
+  - delay: 32
+    content: "\r\e[0m\e[K"
+  - delay: 7
+    content: "\r\e[K\r\e[0m\e[K\r\e[K"
+  - delay: 18
+    content: "\r\e[0m\e[K"
+  - delay: 7
+    content: "\r\e[K\r\e[0m\e[K\r\e[K"
+  - delay: 18
+    content: "\r\e[0m\e[K"
+  - delay: 51
+    content: "\r[\e[32;1m0\e[0m/1 built] \e[0m\e[K"
+  - delay: 16
+    content: "\r\e[K"
+  - delay: 15
+    content: "Starting Home Manager activation\r\n"
+  - delay: 63
+    content: "\e[1m\e[36mActivating checkFilesChanged\r\n\e(B\e[m\e[1m\e[36mActivating checkLinkTargets\r\n\e(B\e[m"
+  - delay: 16
+    content: "\e[1m\e[36mActivating writeBoundary\r\n\e(B\e[m\e[1m\e[36mActivating installPackages\r\n\e(B\e[m"
+  - delay: 21
+    content: "nix profile remove /nix/store/2bw1rjkmgbq7ba72l66rannxlj53sxjx-home-manager-path\r\n"
+  - delay: 17
+    content: "\r\e[0m\e[K\r\e[Kremoving 'home-manager-path'\e[0m\r\n\r\e[0m\e[K"
+  - delay: 11
+    content: "\r\e[K"
+  - delay: 18
+    content: "\r\e[0m\e[K"
+  - delay: 27
+    content: "\r\e[K\e[1m\e[36mActivating linkGeneration\r\n\e(B\e[mCleaning up orphan links from /home/tsirysndr\r\n"
+  - delay: 24
+    content: "Creating profile generation 67\r\n"
+  - delay: 47
+    content: "Creating home file links in /home/tsirysndr\r\n"
+  - delay: 11
+    content: "\e[1m\e[36mActivating onFilesChange\r\n\e(B\e[m\e[1m\e[36mActivating reloadSystemd\r\n\e(B\e[m"
+  - delay: 90
+    content: "\r\e[0m\e[K"
+  - delay: 19
+    content: "\r\e[K"
+  - delay: 64
+    content: "\e[92m[✓]\e[39m Successfully un-used environment\r\n\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K"
+  - delay: 5
+    content: "\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 63
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 74 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 2141
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203ml\e(B\e[m\e[K\e[?25h"
+  - delay: 26
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;36m\e[0;36ml\e[0;38;5;238;48;5;254ms -la ~/.screenrc \e(B\e[m\e[K\e(B\e[m\e[18D\e[?25h"
+  - delay: 978
+    content: "\e[?25l\e[0;36ms\e[0;38;5;238;48;5;254m -la ~/.screenrc \e(B\e[m\e[17D\e[?25h"
+  - delay: 237
+    content: "\e[?25l\e(B\e[m\e[2D\e[0;36m\e[0;36mls\e[0m \e[0;36m-la\e[0m \e[0;4;38;5;26m~/\e[0m.screenrc \e(B\e[m\e[K\e[?25h"
+  - delay: 313
+    content: "\e[?25l\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 42
+    content: "ls: cannot access '/home/tsirysndr/.screenrc': No such file or directory\r\n\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K"
+  - delay: 6
+    content: "\e[0;91m[ble: exit 2]\e(B\e[m\r\n\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 79
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m\e[0;38;2;247;118;142m \e(B\e[m                                                                             \e[0;38;2;169;177;214m 74 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 738
+    content: "\e[?25l\e[0;32m\e[0;32mw\e(B\e[m\e[K\e[?25h"
+  - delay: 23
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;32m\e[0;32mw\e[0;38;5;238;48;5;254mhich hello\e(B\e[m\e[K\e(B\e[m\e[10D\e[?25h"
+  - delay: 73
+    content: "\e[?25l\e[0;32mh\e[0;38;5;238;48;5;254mich hello\e(B\e[m\e[9D\e[?25h"
+  - delay: 35
+    content: "\e[?25l\e[0;32mi\e[0;38;5;238;48;5;254mch hello\e(B\e[m\e[8D\e[?25h"
+  - delay: 57
+    content: "\e[?25l\e[0;32mc\e[0;38;5;238;48;5;254mh hello\e(B\e[m\e[7D\e[?25h"
+  - delay: 124
+    content: "\e[?25l\e[0;32mh\e[0;38;5;238;48;5;254m hello\e(B\e[m\e[6D\e[?25h"
+  - delay: 125
+    content: "\e[?25l\e(B\e[m\e[5D\e[0;32m\e[0;32mwhich\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 21
+    content: "\e[?25l\e(B\e[m\e[6D\e[0;32m\e[0;32mwhich\e[0m \e[0;38;5;238;48;5;254mhello\e(B\e[m\e[K\e(B\e[m\e[5D\e[?25h"
+  - delay: 639
+    content: "\e[?25l\e[0mh\e[0;38;5;238;48;5;254mello\e(B\e[m\e[4D\e[?25h"
+  - delay: 204
+    content: "\e[?25l\e[0me\e[0;38;5;238;48;5;254mllo\e(B\e[m\e[3D\e[?25h"
+  - delay: 168
+    content: "\e[?25l\e[0ml\e[0;38;5;238;48;5;254mlo\e(B\e[m\e[2D\e[?25h"
+  - delay: 146
+    content: "\e[?25l\e[0ml\e[0;38;5;238;48;5;254mo\e(B\e[m\e[1D\e[?25h"
+  - delay: 197
+    content: "\e[?25l\e[0mo\e[?25h"
+  - delay: 726
+    content: "\e[?25l\e(B\e[m\e[1D\e[0mo\e(B\e[m\e[K\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 48
+    content: "\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K"
+  - delay: 7
+    content: "\e[0;91m[ble: exit 1]\e(B\e[m\r\n\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 65
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m\e[0;38;2;247;118;142m \e(B\e[m                                                                             \e[0;38;2;169;177;214m 74 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 2989
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203mb\e(B\e[m\e[K\e[?25h"
+  - delay: 27
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;32m\e[0;32mb\e[0;38;5;238;48;5;254mat envhub.hcl \e(B\e[m\e[K\e(B\e[m\e[14D\e[?25h"
+  - delay: 39
+    content: "\e[?25l\e[0;32ma\e[0;38;5;238;48;5;254mt envhub.hcl \e(B\e[m\e[13D\e[?25h"
+  - delay: 186
+    content: "\e[?25l\e[0;32mt\e[0;38;5;238;48;5;254m envhub.hcl \e(B\e[m\e[12D\e[?25h"
+  - delay: 226
+    content: "\e[?25l\e(B\e[m\e[3D\e[0;32m\e[0;32mbat\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 23
+    content: "\e[?25l\e(B\e[m\e[4D\e[0;32m\e[0;32mbat\e[0m \e[0;38;5;238;48;5;254menvhub.hcl \e(B\e[m\e[K\e(B\e[m\e[11D\e[?25h"
+  - delay: 953
+    content: "\e[?25l\e(B\e[m\e[4D\e[0;32m\e[0;32mbat\e[0m \e[0;4menvhub.hcl\e[0m \e(B\e[m\e[K\e[?25h"
+  - delay: 636
+    content: "\e[?25l\e(B\e[m\r\n\e[?25h\e[?25l\e[?2004l\e[>4;1m\e[m\e[?25h"
+  - delay: 73
+    content: "\r\e[38;5;238m───────┬────────────────────────────────────────────────────────────────────────────────────────────────────────\e[0m\e[m\r\n       \e[38;5;238m│ \e[0mFile: \e[1menvhub.hcl\e[0m\e[m\r\n\e[38;5;238m───────┼────────────────────────────────────────────────────────────────────────────────────────────────────────\e[0m\e[m\r\n\e[38;5;238m   1\e[0m   \e[38;5;238m│\e[0m \e[38;5;231mpackages\e[0m\e[38;5;231m \e[0m\e[38;5;203m= \e[0m\e[38;5;231m[\e[0m\e[m\r\n\e[38;5;238m   2\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m  \e[0m\e[38;5;186m\"\e[0m\e[38;5;186mhello\e[0m\e[38;5;186m\"\e[0m\e[m\r\n\e[38;5;238m   3\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m]\e[0m\e[m\r\n\e[38;5;238m   4\e[0m   \e[38;5;238m│\e[0m \e[m\r\n\e[38;5;238m   5\e[0m   \e[38;5;238m│\e[0m \e[38;5;231mfile \e[0m\e[38;5;186m\"\e[0m\e[38;5;186m.screenrc\e[0m\e[38;5;186m\"\e[0m\e[38;5;231m \e[0m\e[38;5;231m{\e[0m\e[m\r\n\e[38;5;238m   6\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m  \e[0m\e[38;5;186msource\e[0m\e[38;5;231m \e[0m\e[38;5;203m=\e[0m\e[38;5;231m \e[0m\e[38;5;186m\"\e[0m\e[38;5;186mdotfiles/.screenrc\e[0m\e[38;5;186m\"\e[0m\e[m\r\n\e[38;5;238m   7\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m}\e[0m\e[m\r\n\e[38;5;238m   8\e[0m   \e[38;5;238m│\e[0m \e[m\r\n\e[38;5;238m   9\e[0m   \e[38;5;238m│\e[0m \e[38;5;231mfile \e[0m\e[38;5;186m\"\e[0m\e[38;5;186m.bashrc.backup\e[0m\e[38;5;186m\"\e[0m\e[38;5;231m \e[0m\e[38;5;231m{\e[0m\e[m\r\n\e[38;5;238m  10\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m  \e[0m\e[38;5;186msource\e[0m\e[38;5;231m \e[0m\e[38;5;203m=\e[0m\e[38;5;231m \e[0m\e[38;5;186m\"\e[0m\e[38;5;186mdotfiles/.bashrc.backup\e[0m\e[38;5;186m\"\e[0m\e[m\r\n\e[38;5;238m  11\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m}\e[0m\e[m\r\n\e[38;5;238m  12\e[0m   \e[38;5;238m│\e[0m \e[m\r\n\e[38;5;238m  13\e[0m   \e[38;5;238m│\e[0m \e[38;5;231mfile \e[0m\e[38;5;186m\"\e[0m\e[38;5;186m.gradle/gradle.properties\e[0m\e[38;5;186m\"\e[0m\e[38;5;231m \e[0m\e[38;5;231m{\e[0m\e[m\r\n\e[38;5;238m  14\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m  \e[0m\e[38;5;186mcontent\e[0m\e[38;5;231m \e[0m\e[38;5;203m=\e[0m\e[38;5;231m \e[0m\e[38;5;186m\"\e[0m\e[38;5;186morg.gradle.daemon=true\e[0m\e[38;5;186m\"\e[0m\e[m\r\n\e[38;5;238m  15\e[0m   \e[38;5;238m│\e[0m \e[38;5;231m}\e[0m\e[m\r\n\e[38;5;238m───────┴────────────────────────────────────────────────────────────────────────────────────────────────────────\e[0m\e[m\r\n\r\e[K"
+  - delay: 5
+    content: "\e(B\e[m\e7\e[0;94m[ble: EOF]\e(B\e[m\e(B\e[m\e8\e[110C  \r\e[K"
+  - delay: 6
+    content: "\e[?2004h\e[>4;1m\e[>4;2m\e[m\e[?25h"
+  - delay: 76
+    content: "\e[?25l\e(B\e[m\r\n\e(B\e[m\e[1L\e[2K\e(B\e[m\e[1A\e[2K\e[2M\e[2L\e[2K\e[0;38;2;122;162;247m➜ \e(B\e[m\e[0;1m\e[0;1;38;2;187;154;247mdemo\e[0;38;2;187;154;247m \e[0;38;2;125;207;255m⚡\e(B\e[m\e[0;38;2;125;207;255m( main)\e(B\e[m                                                                               \e[0;38;2;169;177;214m 74 minutes ago \e(B\e[m\r\r\n\e[0;38;2;158;206;106m▶\e(B\e[m\e]0; demo :: \a \e[?25h"
+  - delay: 880
+    content: "\e[?25l\e[0;38;5;231;48;5;203m\e[0;38;5;231;48;5;203mq\e(B\e[m\e[K\e[?25h"
+  - delay: 78
+    content: "\e[?25l\e(B\e[m\e[1D\e[0;32m\e[0;32mq\e[0;38;5;238;48;5;254memu-img\e(B\e[m\e[K\e(B\e[m\e[7D\e[?25h"
+  - delay: 575
+    content: "\e[?25l\e(B\e[m\e[1D\e[K\e[?25h"
+  - delay: 120
+    content: "\a"
+  - delay: 2973
+    content: "\e[?25l\e[94m[ble: exit]\e(B\e[m\r\n\e[?25h"
