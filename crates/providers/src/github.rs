@@ -4,6 +4,7 @@ use std::{
 };
 
 use anyhow::Error;
+use envhub_pkgs::{pkgx::Pkgx, PackageManager};
 
 use crate::Provider;
 
@@ -15,6 +16,8 @@ impl Github {
     }
 
     pub fn clone(&self, url: &str, name: &str) -> Result<(), Error> {
+        let pkgx: Box<dyn PackageManager> = Box::new(Pkgx::new());
+        pkgx.setup()?;
         let home = dirs::home_dir().unwrap();
         let home = home.to_str().unwrap();
         let user = name.split('/').nth(0).unwrap();
@@ -23,7 +26,7 @@ impl Github {
         if fs::metadata(format!("{}/.envhub/github/{}", home, user)).is_ok() {
             let mut child = Command::new("sh")
                 .arg("-c")
-                .arg(format!("git pull origin $(git branch --show-current)"))
+                .arg(format!("pkgx git pull origin $(git branch --show-current)"))
                 .current_dir(format!("{}/.envhub/github/{}/{}", home, user, dest))
                 .stdin(Stdio::inherit())
                 .stdout(Stdio::inherit())
@@ -37,7 +40,7 @@ impl Github {
 
         let mut child = Command::new("sh")
             .arg("-c")
-            .arg(format!("git clone {} {}", url, dest))
+            .arg(format!("pkgx git clone {} {}", url, dest))
             .current_dir(format!("{}/.envhub/github/{}", home, user))
             .stdin(Stdio::inherit())
             .stdout(Stdio::inherit())
