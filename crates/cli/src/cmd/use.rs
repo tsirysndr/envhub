@@ -23,6 +23,12 @@ pub fn use_environment(name: &str) -> Result<(), Error> {
         false => name,
         true => name.split(":").collect::<Vec<&str>>()[1],
     };
+
+    let path = match scheme {
+        "local" => fs::canonicalize(name)?.to_str().unwrap().to_string(),
+        _ => format!("{}:{}", scheme, name),
+    };
+
     source.load(name)?;
 
     let home_manager_dir = get_home_manager_dir(scheme, name)?;
@@ -48,9 +54,10 @@ pub fn use_environment(name: &str) -> Result<(), Error> {
     fs::write(
         format!("{}/.envhub/current", std::env::var("HOME")?),
         format!(
-            "{}\n{}",
+            "{}\n{}\n{}",
             &home_manager_dir,
-            &config.symlink_manager.unwrap_or("home-manager".into())
+            &config.symlink_manager.unwrap_or("home-manager".into()),
+            &path
         ),
     )?;
 
