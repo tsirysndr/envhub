@@ -55,4 +55,4 @@ file ".gradle/gradle.properties" {
 }
 ```
 
-See [demo](demo) for a more complete example.
+See [demo](demo) and [examples](examples) for a more complete example.
