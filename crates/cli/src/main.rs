@@ -173,6 +173,16 @@ async fn main() -> Result<(), Error> {
             Some(("list", _)) => cmd::package::list()?,
             _ => cli().print_help().unwrap(),
         },
+        Some(("file", args)) => match args.subcommand() {
+            Some(("add", args)) => cmd::file::add(
+                args.value_of("path").unwrap(),
+                args.value_of("source"),
+                args.value_of("content"),
+            )?,
+            Some(("remove", args)) => cmd::file::remove(args.value_of("key").unwrap())?,
+            Some(("list", _)) => cmd::file::list()?,
+            _ => cli().print_help().unwrap(),
+        },
         Some(("use", args)) => cmd::r#use::use_environment(args.value_of("environment").unwrap())?,
         Some(("unuse", _)) => cmd::unuse::unuse_environment()?,
         _ => cli().print_help().unwrap(),

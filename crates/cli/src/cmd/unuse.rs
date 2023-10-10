@@ -19,5 +19,6 @@ pub fn unuse_environment() -> Result<(), Error> {
         let package = "dotfiles";
         unstow(&home_manager_dir, &target, &package)?;
     }
+    fs::remove_file(format!("{}/.envhub/current", std::env::var("HOME")?))?;
     Ok(())
 }
