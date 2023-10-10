@@ -39,7 +39,7 @@ pub fn copy_home_nix(dest: &str) -> Result<(), Error> {
 pub fn git_add(dir: &str) -> Result<(), Error> {
     let mut child = Command::new("sh")
         .arg("-c")
-        .arg("git add .")
+        .arg("pkgx git add .")
         .current_dir(dir)
         .stdin(Stdio::inherit())
         .stdout(Stdio::inherit())
@@ -50,9 +50,26 @@ pub fn git_add(dir: &str) -> Result<(), Error> {
 }
 
 pub fn git_pull(dir: &str) -> Result<(), Error> {
+    let pkgx: Box<dyn PackageManager> = Box::new(Pkgx::new());
+    pkgx.setup()?;
     let mut child = Command::new("sh")
         .arg("-c")
-        .arg("git pull origin $(git branch --show-current)")
+        .arg("pkgx git pull origin $(git branch --show-current)")
+        .current_dir(dir)
+        .stdin(Stdio::inherit())
+        .stdout(Stdio::inherit())
+        .stderr(Stdio::inherit())
+        .spawn()?;
+    child.wait()?;
+    Ok(())
+}
+
+pub fn git_fetch_all(dir: &str) -> Result<(), Error> {
+    let pkgx: Box<dyn PackageManager> = Box::new(Pkgx::new());
+    pkgx.setup()?;
+    let mut child = Command::new("sh")
+        .arg("-c")
+        .arg("pkgx git fetch --all")
         .current_dir(dir)
         .stdin(Stdio::inherit())
         .stdout(Stdio::inherit())
@@ -73,6 +90,7 @@ pub fn get_home_manager_dir(scheme: &str, name: &str) -> Result<String, Error> {
                 }
             };
             git_add(&format!("{}/.envhub/github/{}", home, name))?;
+            git_fetch_all(&format!("{}/.envhub/github/{}", home, name))?;
             git_pull(&format!("{}/.envhub/github/{}", home, name))?;
             format!("{}/.envhub/github/{}", home, name)
         }
