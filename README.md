@@ -19,6 +19,12 @@ Written in [Rust](https://www.rust-lang.org/), internally it uses [nix](https://
 
 ## 🚚 Installation
 
+Using [Cargo](https://crates.io):
+
+```bash
+cargo install envhub
+```
+
 Using [Nix](https://nixos.org):
 
 ```bash
