@@ -4,6 +4,7 @@ use anyhow::Error;
 use envhub_hm::switch::switch_env;
 use envhub_providers::{github::Github, local::Local, s3::S3, Provider};
 use envhub_stow::stow::stow;
+use owo_colors::OwoColorize;
 
 use crate::helpers::{copy_home_nix, get_home_manager_dir, install_packages, read_envhub_file};
 
@@ -60,6 +61,12 @@ pub fn use_environment(name: &str) -> Result<(), Error> {
             state
         ),
     )?;
+
+    println!(
+        "{} Successfully used environment: {}",
+        "[✓]".bright_green(),
+        home_manager_dir.bright_green()
+    );
 
     Ok(())
 }

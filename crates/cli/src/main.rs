@@ -118,6 +118,10 @@ fn cli() -> Command<'static> {
           Command::new("unuse")
             .about("Restore the previous environment"),
         )
+        .subcommand(
+            Command::new("status")
+                .about("Show the current environment"),   
+        )
 }
 
 #[tokio::main]
@@ -185,6 +189,7 @@ async fn main() -> Result<(), Error> {
         },
         Some(("use", args)) => cmd::r#use::use_environment(args.value_of("environment").unwrap())?,
         Some(("unuse", _)) => cmd::unuse::unuse_environment()?,
+        Some(("status", _)) => cmd::status::status()?,
         _ => cli().print_help().unwrap(),
     }
     Ok(())
