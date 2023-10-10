@@ -34,6 +34,21 @@ impl Pkgx {
         child.wait()?;
         Ok(())
     }
+
+    pub fn setup_path(&self, rc_file: &str) -> Result<(), Error> {
+        let mut child = Command::new("sh")
+            .arg("-c")
+            .arg(format!(
+                "type pkgx > /dev/null || echo \'PATH=$HOME/.local/bin:$PATH\' >> ~/{}",
+                rc_file
+            ))
+            .stdin(Stdio::inherit())
+            .stdout(Stdio::inherit())
+            .stderr(Stdio::inherit())
+            .spawn()?;
+        child.wait()?;
+        Ok(())
+    }
 }
 
 impl PackageManager for Pkgx {
@@ -70,6 +85,8 @@ impl PackageManager for Pkgx {
     }
 
     fn setup(&self) -> Result<(), Error> {
+        self.setup_path(".bashrc")?;
+        self.setup_path(".zshrc")?;
         let mut child = Command::new("sh")
             .arg("-c")
             .arg("type pkgx > /dev/null || curl -fsS https://pkgx.sh | sh")

@@ -362,6 +362,7 @@ dependencies = [
  "envhub-stow",
  "envhub-types",
  "hcl-rs",
+ "owo-colors",
  "tokio",
  "toml",
 ]

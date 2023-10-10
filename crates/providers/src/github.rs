@@ -49,6 +49,9 @@ impl Github {
 }
 
 impl Provider for Github {
+    fn name(&self) -> &str {
+        "github"
+    }
     fn load(&self, repo: &str) -> Result<(), Error> {
         let url = format!("https://github.com/{}", repo);
         self.clone(&url, repo)?;

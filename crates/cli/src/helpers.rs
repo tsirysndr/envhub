@@ -133,7 +133,59 @@ pub fn read_envhub_file(dir: &str) -> Result<Configuration, Error> {
     }
 }
 
+pub fn write_envhub_file(dir: &str, config: &Configuration) -> Result<(), Error> {
+    let mut path = format!("{}/envhub.hcl", dir);
+
+    if !fs::metadata(&path).is_ok() {
+        path = format!("{}/envhub.toml", dir);
+    }
+
+    if !fs::metadata(&path).is_ok() {
+        panic!("No `envhub.toml` or `envhub.hcl` file found in {}", dir)
+    }
+
+    let ext = path.split(".").last().unwrap();
+    match ext {
+        "toml" => {
+            let content = toml::to_string_pretty(&config)?;
+            fs::write(&path, content)?;
+            Ok(())
+        }
+        "hcl" => {
+            let content = hcl::to_string(&config)?;
+            fs::write(&path, content)?;
+            Ok(())
+        }
+        _ => panic!("Unknown file extension: {}", ext),
+    }
+}
+
+fn sync_packages(config: &Configuration) -> Result<(), Error> {
+    let current_state = fs::read_to_string(format!("{}/.envhub/envhub.toml", env::var("HOME")?))?;
+    let current_config: Configuration = toml::from_str(&current_state)?;
+    let current_packages = current_config.packages.clone().unwrap_or_default();
+    let packages = config.packages.clone().unwrap_or_default();
+    for package in current_packages {
+        if !packages.contains(&package) {
+            let pm: Box<dyn PackageManager> =
+                match current_config.package_manager.as_ref().unwrap().as_str() {
+                    "homebrew" => Box::new(Homebrew::new()),
+                    "brew" => Box::new(Homebrew::new()),
+                    "pkgx" => Box::new(Pkgx::new()),
+                    "devbox" => Box::new(Devbox::new()),
+                    _ => panic!("Unknown package manager"),
+                };
+            pm.uninstall(&package)?;
+        }
+    }
+    Ok(())
+}
+
 pub fn install_packages(config: &Configuration) -> Result<(), Error> {
+    if fs::metadata(format!("{}/.envhub/envhub.toml", env::var("HOME")?)).is_ok() {
+        self::sync_packages(config)?;
+    }
+
     let packages = config.packages.clone().unwrap_or_default();
     let pm: Box<dyn PackageManager> = match config.package_manager.as_ref().unwrap().as_str() {
         "homebrew" => Box::new(Homebrew::new()),

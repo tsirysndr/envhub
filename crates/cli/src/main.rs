@@ -56,14 +56,17 @@ fn cli() -> Command<'static> {
                 .subcommand(
                     Command::new("add")
                         .about("Add a package to the environment")
-                        .arg(arg!(<package>)),
+                        .arg(arg!(<package>))
+                        .arg(arg!(--apply "Apply the configuration after adding a package")),
                 )
                 .subcommand(
                     Command::new("remove")
+                        .alias("rm")
                         .about("Remove a package from the environment")
+                        .arg(arg!(--apply "Apply the configuration after removing a package"))
                         .arg(arg!(<package>)),
                 )
-                .subcommand(Command::new("list").about("List all packages in the environment")),
+                .subcommand(Command::new("list").alias("ls").about("List all packages in the environment")),
         )
         .subcommand(
             Command::new("env")
@@ -76,10 +79,11 @@ fn cli() -> Command<'static> {
                 )
                 .subcommand(
                     Command::new("remove")
+                        .alias("rm")
                         .about("Remove an environment variable from the environment")
                         .arg(arg!(<key>).required(true).index(1)),
                 )
-                .subcommand(Command::new("list").about("List all environment variables")),
+                .subcommand(Command::new("list").alias("ls").about("List all environment variables")),
         )
         .subcommand(
             Command::new("file")
@@ -99,10 +103,11 @@ fn cli() -> Command<'static> {
                 )
                 .subcommand(
                     Command::new("remove")
+                        .alias("rm")
                         .about("Remove a file from the environment")
                         .arg(arg!(<key>).required(true).index(1)),
                 )
-                .subcommand(Command::new("list").about("List all files")),
+                .subcommand(Command::new("list").alias("ls").about("List all files")),
         )
         .subcommand(
             Command::new("use")
@@ -159,8 +164,12 @@ async fn main() -> Result<(), Error> {
             _ => cli().print_help().unwrap(),
         },
         Some(("package", args)) => match args.subcommand() {
-            Some(("add", args)) => cmd::package::add(args.value_of("package").unwrap())?,
-            Some(("remove", args)) => cmd::package::remove(args.value_of("package").unwrap())?,
+            Some(("add", args)) => {
+                cmd::package::add(args.value_of("package").unwrap(), args.is_present("apply"))?
+            }
+            Some(("remove", args)) => {
+                cmd::package::remove(args.value_of("package").unwrap(), args.is_present("apply"))?
+            }
             Some(("list", _)) => cmd::package::list()?,
             _ => cli().print_help().unwrap(),
         },

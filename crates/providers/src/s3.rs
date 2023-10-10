@@ -15,6 +15,9 @@ impl S3 {
 }
 
 impl Provider for S3 {
+    fn name(&self) -> &str {
+        "s3"
+    }
     fn load(&self, name: &str) -> Result<(), Error> {
         self.download(name)?;
         Ok(())
