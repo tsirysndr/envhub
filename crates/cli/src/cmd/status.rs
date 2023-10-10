@@ -10,11 +10,12 @@ pub fn status() -> Result<(), Error> {
     }
     let content = fs::read_to_string(format!("{}/.envhub/current", env!("HOME")))?;
     let lines = content.lines().collect::<Vec<&str>>();
-    if lines.len() != 2 {
+    if lines.len() != 3 {
         panic!("Invalid .envhub/current file");
     }
     let home_manager_dir = lines[0];
     let symlink_manager = lines[1];
+    let from = lines[2];
     println!(
         "{} Environment: {}",
         "[✓]".bright_green(),
@@ -25,5 +26,6 @@ pub fn status() -> Result<(), Error> {
         "[✓]".bright_green(),
         symlink_manager.bright_green()
     );
+    println!("{} From: {}", "[✓]".bright_green(), from.bright_green());
     Ok(())
 }
