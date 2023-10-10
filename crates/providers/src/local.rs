@@ -45,6 +45,9 @@ impl Local {
 }
 
 impl Provider for Local {
+    fn name(&self) -> &str {
+        "local"
+    }
     fn load(&self, name: &str) -> Result<(), Error> {
         self.copy(name)?;
         Ok(())

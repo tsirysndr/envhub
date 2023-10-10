@@ -133,6 +133,33 @@ pub fn read_envhub_file(dir: &str) -> Result<Configuration, Error> {
     }
 }
 
+pub fn write_envhub_file(dir: &str, config: &Configuration) -> Result<(), Error> {
+    let mut path = format!("{}/envhub.hcl", dir);
+
+    if !fs::metadata(&path).is_ok() {
+        path = format!("{}/envhub.toml", dir);
+    }
+
+    if !fs::metadata(&path).is_ok() {
+        panic!("No `envhub.toml` or `envhub.hcl` file found in {}", dir)
+    }
+
+    let ext = path.split(".").last().unwrap();
+    match ext {
+        "toml" => {
+            let content = toml::to_string_pretty(&config)?;
+            fs::write(&path, content)?;
+            Ok(())
+        }
+        "hcl" => {
+            let content = hcl::to_string(&config)?;
+            fs::write(&path, content)?;
+            Ok(())
+        }
+        _ => panic!("Unknown file extension: {}", ext),
+    }
+}
+
 pub fn install_packages(config: &Configuration) -> Result<(), Error> {
     let packages = config.packages.clone().unwrap_or_default();
     let pm: Box<dyn PackageManager> = match config.package_manager.as_ref().unwrap().as_str() {
