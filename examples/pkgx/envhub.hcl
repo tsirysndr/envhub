@@ -1,5 +1,7 @@
 packages = [
-  "jq"
+  "jq",
+  "vim.org/vim",
+  "aws"
 ]
 
 envs {
