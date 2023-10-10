@@ -352,10 +352,11 @@ dependencies = [
 
 [[package]]
 name = "envhub"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "anyhow",
  "clap 3.2.25",
+ "envhub-ext",
  "envhub-hm",
  "envhub-pkgs",
  "envhub-providers",
@@ -368,8 +369,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "envhub-hm"
+name = "envhub-ext"
 version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "envhub-types",
+]
+
+[[package]]
+name = "envhub-hm"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "envhub-types",
@@ -387,7 +396,7 @@ dependencies = [
 
 [[package]]
 name = "envhub-providers"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "anyhow",
  "dirs",
@@ -404,7 +413,7 @@ dependencies = [
 
 [[package]]
 name = "envhub-types"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "hcl-rs",
  "indexmap 1.9.3",

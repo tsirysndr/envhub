@@ -5,15 +5,12 @@ description = "Manage your dotfiles and packages with ease."
 edition = "2021"
 keywords = ["nix", "shell", "environment", "dotfiles"]
 license = "MIT"
-name = "envhub-hm"
+name = "envhub-ext"
 repository = "https://github.com/tsirysndr/envhub"
-version = "0.1.2"
+version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 anyhow = "1.0.71"
 envhub-types = {version = "0.2.0", path = "../types"}
-indexmap = {version = "1.9.3", features = ["serde"]}
-nix-editor = "0.3.0"
-rnix = "0.11.0"

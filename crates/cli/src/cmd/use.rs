@@ -1,6 +1,7 @@
 use std::fs;
 
 use anyhow::Error;
+use envhub_ext::{rtx::Rtx, Extension};
 use envhub_hm::switch::switch_env;
 use envhub_providers::{github::Github, local::Local, s3::S3, Provider};
 use envhub_stow::stow::stow;
@@ -39,6 +40,11 @@ pub fn use_environment(name: &str) -> Result<(), Error> {
 
     if config.package_manager.is_some() && config.package_manager != Some("nix".into()) {
         install_packages(&config)?;
+    }
+
+    if config.rtx.is_some() {
+        let rtx: Box<dyn Extension> = Box::new(Rtx::new());
+        rtx.load(&config)?;
     }
 
     switch_env(Some(&home_manager_dir), &config)?;

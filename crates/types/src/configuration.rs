@@ -20,6 +20,11 @@ pub struct Packages {
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, Default)]
+pub struct RtxParams {
+    pub packages: Vec<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone, Default)]
 pub struct Configuration {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packages: Option<Vec<String>>,
@@ -58,4 +63,9 @@ pub struct Configuration {
     pub symlink_manager: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub package_manager: Option<String>,
+    #[serde(
+        skip_serializing_if = "Option::is_none",
+        serialize_with = "hcl::ser::block"
+    )]
+    pub rtx: Option<RtxParams>,
 }
