@@ -36,6 +36,12 @@ pub fn list() -> Result<(), Error> {
 pub fn remove(package: &str, apply: bool) -> Result<(), Error> {
     let mut config = read_envhub_file(".")?;
     let mut packages = config.packages.unwrap_or_default();
+
+    if packages.is_empty() {
+        println!("No packages found in envhub file");
+        return Ok(());
+    }
+
     if !packages.contains(&package.to_string()) {
         println!(
             "{} Package {} not in envhub file",
