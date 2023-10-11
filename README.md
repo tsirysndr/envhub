@@ -19,19 +19,19 @@ Written in [Rust](https://www.rust-lang.org/), internally it uses [nix](https://
 
 ## 🚚 Installation
 
-Using [Cargo](https://crates.io):
+Using [Cargo](https://crates.io) :
 
 ```bash
 cargo install envhub
 ```
 
-Using [Nix](https://nixos.org):
+Using [Nix](https://nixos.org) :
 
 ```bash
 nix profile install --experimental-features "nix-command flakes" github:tsirysndr/envhub
 ```
 
-Compile from source:
+Compile from source :
 
 ```bash
 git clone https://github.com/tsirysndr/envhub.git
@@ -41,7 +41,7 @@ cargo install --path crates/cli
 envhub --help
 ```
 
-Using [Homebrew](https://brew.sh):
+Using [Homebrew](https://brew.sh) :
 
 ```bash
 brew install tsirysndr/tap/envhub
