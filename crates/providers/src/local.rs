@@ -40,6 +40,18 @@ impl Local {
             .stderr(Stdio::inherit())
             .spawn()?;
         child.wait()?;
+
+        let mut child = Command::new("sh")
+            .arg("-c")
+            .arg(format!(
+                "[ -d {}/{}/.git ] && rm -rf {}/{}/.git",
+                dest, name, dest, name
+            ))
+            .stdin(Stdio::inherit())
+            .stdout(Stdio::inherit())
+            .stderr(Stdio::inherit())
+            .spawn()?;
+        child.wait()?;
         Ok(())
     }
 }

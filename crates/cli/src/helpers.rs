@@ -169,21 +169,44 @@ fn sync_packages(config: &Configuration) -> Result<(), Error> {
 }
 
 pub fn install_packages(config: &Configuration) -> Result<(), Error> {
-    if fs::metadata(format!("{}/.envhub/envhub.toml", env::var("HOME")?)).is_ok() {
-        self::sync_packages(config)?;
+    if config.package_manager.is_some() && config.package_manager != Some("nix".into()) {
+        if fs::metadata(format!("{}/.envhub/envhub.toml", env::var("HOME")?)).is_ok() {
+            self::sync_packages(config)?;
+        }
+
+        let packages = config.packages.clone().unwrap_or_default();
+        let pm: Box<dyn PackageManager> = match config.package_manager.as_ref().unwrap().as_str() {
+            "homebrew" => Box::new(Homebrew::new()),
+            "brew" => Box::new(Homebrew::new()),
+            "pkgx" => Box::new(Pkgx::new()),
+            "devbox" => Box::new(Devbox::new()),
+            _ => panic!("Unknown package manager"),
+        };
+
+        for package in packages {
+            pm.install(&package)?;
+        }
     }
 
-    let packages = config.packages.clone().unwrap_or_default();
-    let pm: Box<dyn PackageManager> = match config.package_manager.as_ref().unwrap().as_str() {
-        "homebrew" => Box::new(Homebrew::new()),
-        "brew" => Box::new(Homebrew::new()),
-        "pkgx" => Box::new(Pkgx::new()),
-        "devbox" => Box::new(Devbox::new()),
-        _ => panic!("Unknown package manager"),
-    };
+    if let Some(brew) = config.homebrew.clone() {
+        let pm: Box<dyn PackageManager> = Box::new(Homebrew::new());
+        for package in brew.packages {
+            pm.install(&package)?;
+        }
+    }
 
-    for package in packages {
-        pm.install(&package)?;
+    if let Some(pkgx) = config.pkgx.clone() {
+        let pm: Box<dyn PackageManager> = Box::new(Pkgx::new());
+        for package in pkgx.packages {
+            pm.install(&package)?;
+        }
+    }
+
+    if let Some(devbox) = config.devbox.clone() {
+        let pm: Box<dyn PackageManager> = Box::new(Devbox::new());
+        for package in devbox.packages {
+            pm.install(&package)?;
+        }
     }
 
     Ok(())
