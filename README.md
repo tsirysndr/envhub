@@ -41,6 +41,14 @@ cargo install --path crates/cli
 envhub --help
 ```
 
+Using [Homebrew](https://brew.sh):
+
+```bash
+brew install tsirysndr/tap/envhub
+```
+
+Or download the latest release for your platform [here](https://github.com/tsirysndr/envhub/releases).
+
 ## 📚 Example
 
 The following example will install the `hello` package, set the `EDITOR` environment variable to `vim`, and copy the `.screenrc` and `gradle.properties` files from the current directory to the home directory.
