@@ -38,9 +38,7 @@ pub fn use_environment(name: &str) -> Result<(), Error> {
 
     let config = read_envhub_file(&home_manager_dir)?;
 
-    if config.package_manager.is_some() && config.package_manager != Some("nix".into()) {
-        install_packages(&config)?;
-    }
+    install_packages(&config)?;
 
     if config.rtx.is_some() {
         let rtx: Box<dyn Extension> = Box::new(Rtx::new());
