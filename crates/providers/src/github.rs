@@ -15,7 +15,7 @@ impl Github {
         Self {}
     }
 
-    pub fn clone(&self, url: &str, name: &str) -> Result<(), Error> {
+    pub fn clone(&self, name: &str) -> Result<(), Error> {
         let pkgx: Box<dyn PackageManager> = Box::new(Pkgx::new());
         pkgx.setup()?;
         let home = dirs::home_dir().unwrap();
@@ -24,6 +24,7 @@ impl Github {
         let dest = name.split('/').last().unwrap();
         let branch = dest.split('@').nth(1);
         let dest = dest.split('@').nth(0).unwrap();
+        let name = name.split('@').nth(0).unwrap();
         let checkout = match branch {
             Some(branch) => format!("&& cd {} && pkgx git checkout {}", dest, branch),
             None => "".into(),
@@ -46,7 +47,7 @@ impl Github {
 
         let mut child = Command::new("sh")
             .arg("-c")
-            .arg(format!("pkgx git clone {} {} {}", url, dest, checkout))
+            .arg(format!("pkgx gh repo clone {} {} {}", name, dest, checkout))
             .current_dir(format!("{}/.envhub/github/{}", home, user))
             .stdin(Stdio::inherit())
             .stdout(Stdio::inherit())
@@ -54,7 +55,7 @@ impl Github {
             .spawn()?;
         let status = child.wait()?;
         if !status.success() {
-            return Err(anyhow::anyhow!("Failed to clone {}", url));
+            return Err(anyhow::anyhow!("Failed to clone {}", name));
         }
         Ok(())
     }
@@ -65,8 +66,7 @@ impl Provider for Github {
         "github"
     }
     fn load(&self, repo: &str) -> Result<(), Error> {
-        let url = format!("https://github.com/{}", repo);
-        self.clone(&url, repo)?;
+        self.clone(repo)?;
         Ok(())
     }
 }
