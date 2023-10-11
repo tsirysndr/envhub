@@ -16,7 +16,7 @@ pub fn unuse_environment() -> Result<(), Error> {
     reset_env()?;
     let content = fs::read_to_string(format!("{}/.envhub/current", std::env::var("HOME")?))?;
     let lines = content.lines().collect::<Vec<&str>>();
-    if lines.len() != 2 {
+    if lines.len() != 3 {
         panic!("Invalid .envhub/current file");
     }
     let home_manager_dir = lines[0];
