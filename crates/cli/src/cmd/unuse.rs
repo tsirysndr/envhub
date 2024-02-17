@@ -28,6 +28,7 @@ pub fn unuse_environment() -> Result<(), Error> {
         unstow(&home_manager_dir, &target, &package)?;
     }
     fs::remove_file(format!("{}/.envhub/current", std::env::var("HOME")?))?;
+    fs::remove_file(format!("{}/.envhub/envhub.toml", std::env::var("HOME")?))?;
     println!("{} Successfully un-used environment", "[✓]".bright_green());
     Ok(())
 }
