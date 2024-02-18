@@ -47,6 +47,11 @@ Using [Homebrew](https://brew.sh) :
 brew install tsirysndr/tap/envhub
 ```
 
+Using bash :
+```bash
+bash <(curl -sSL https://raw.githubusercontent.com/tsirysndr/envhub/main/install.sh)
+```
+
 Or download the latest release for your platform [here](https://github.com/tsirysndr/envhub/releases).
 
 ## 🚀 Quick Start
