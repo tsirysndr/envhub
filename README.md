@@ -19,6 +19,14 @@ Written in [Rust](https://www.rust-lang.org/), internally it uses [nix](https://
 
 ## 🚚 Installation
 
+Using bash :
+
+```bash
+curl -sSL https://install.envhub.sh | bash
+```
+
+Or download the latest release for your platform [here](https://github.com/tsirysndr/envhub/releases).
+
 Using [Cargo](https://crates.io) :
 
 ```bash
@@ -46,13 +54,6 @@ Using [Homebrew](https://brew.sh) :
 ```bash
 brew install tsirysndr/tap/envhub
 ```
-
-Using bash :
-```bash
-curl -sSL https://install.envhub.sh | bash
-```
-
-Or download the latest release for your platform [here](https://github.com/tsirysndr/envhub/releases).
 
 ## 🚀 Quick Start
 
