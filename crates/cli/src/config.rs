@@ -10,7 +10,7 @@ pub fn generate_default_config(cfg_format: &ConfigFormat) -> Result<(), Error> {
         files: Some(
             [
                 (
-                    ".zshrc".into(),
+                    ".zshrc.example".into(),
                     envhub_types::configuration::File {
                         source: Some(".zshrc".into()),
                         ..Default::default()
