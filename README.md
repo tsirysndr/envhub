@@ -49,6 +49,24 @@ brew install tsirysndr/tap/envhub
 
 Or download the latest release for your platform [here](https://github.com/tsirysndr/envhub/releases).
 
+## 🚀 Quick Start
+
+Initialize a new environment :
+
+```sh
+envhub init
+```
+
+It will create a new `envhub.hcl` file and a `dotfiles` directory in the current directory.
+
+You can then edit the `envhub.hcl` file to add packages and add dotfiles to the `dotfiles` directory.
+
+Enable the environment :
+
+```sh
+envhub use
+```
+
 ## 📚 Example
 
 The following example will install the `hello` package, set the `EDITOR` environment variable to `vim`, and copy the `.screenrc` and `gradle.properties` files from the current directory to the home directory.
