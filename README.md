@@ -25,8 +25,6 @@ Using bash :
 curl -sSL https://install.envhub.sh | bash
 ```
 
-Or download the latest release for your platform [here](https://github.com/tsirysndr/envhub/releases).
-
 Using [Cargo](https://crates.io) :
 
 ```bash
@@ -54,6 +52,9 @@ Using [Homebrew](https://brew.sh) :
 ```bash
 brew install tsirysndr/tap/envhub
 ```
+
+Or download the latest release for your platform [here](https://github.com/tsirysndr/envhub/releases).
+
 
 ## 🚀 Quick Start
 
