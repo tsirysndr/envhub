@@ -5,6 +5,7 @@ use std::{
 
 use anyhow::Error;
 use envhub_types::configuration::ConfigFormat;
+use owo_colors::OwoColorize;
 
 use crate::config::{generate_config, generate_default_config};
 
@@ -20,8 +21,24 @@ pub fn execute_init(
         let mut file = File::create("dotfiles/.zshrc")?;
         file.write_all(b"# This is an example of .zshrc file\n")?;
         generate_default_config(&cfg_format)?;
+        println!(
+            "{} Successfully initialized a new environment ✨",
+            "[✓]".bright_green()
+        );
+        println!(
+            "Run {} to apply the changes to your environment",
+            "`envhub use`".bright_green()
+        );
         return Ok(());
     }
     generate_config(&cfg_format, packages, envs, package_manager, use_stow)?;
+    println!(
+        "{} Successfully initialized a new environment ✨",
+        "[✓]".bright_green()
+    );
+    println!(
+        "Run {} to apply the changes to your environment",
+        "`envhub use`".bright_green()
+    );
     Ok(())
 }

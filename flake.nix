@@ -40,7 +40,7 @@
           inherit src;
           
           pname = "envhub";
-          version = "0.2.5";
+          version = "0.2.7";
           cargoExtraArgs = "--package=envhub";
 
           buildInputs = [
