@@ -49,7 +49,7 @@ brew install tsirysndr/tap/envhub
 
 Using bash :
 ```bash
-bash <(curl -sSL https://raw.githubusercontent.com/tsirysndr/envhub/main/install.sh)
+curl -sSL https://install.envhub.sh | bash
 ```
 
 Or download the latest release for your platform [here](https://github.com/tsirysndr/envhub/releases).
