@@ -51,10 +51,11 @@ export const build = async (src = ".") => {
         "-c",
         "cargo build -p envhub --release --target $TARGET",
       ])
+      .withExec(["sh", "-c", "cp", "target/$TARGET/release/envhub", "."])
       .withExec([
         "sh",
         "-c",
-        "tar czvf /assets/envhub_${TAG}_${TARGET}.tar.gz target/$TARGET/release/envhub",
+        "tar czvf /assets/envhub_${TAG}_${TARGET}.tar.gz envhub",
       ])
       .withExec([
         "sh",
