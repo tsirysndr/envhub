@@ -19,7 +19,7 @@ pub fn install() -> Result<(), Error> {
 
     let mut child = Command::new("sh")
         .arg("-c")
-        .arg("type nix > /dev/null || curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- --no-confirm install")
+        .arg("type nix > /dev/null || curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm")
         .spawn()?;
     child.wait()?;
 
