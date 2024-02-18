@@ -91,3 +91,14 @@ file ".gradle/gradle.properties" {
 ```
 
 See [demo](demo) and [examples](examples) for a more complete example.
+
+## As a GitHub Action
+
+You can use EnvHub as a GitHub Action to manage your dotfiles and packages in your CI/CD workflow.
+
+```yaml
+- uses: tsirysndr/setup-envhub@v1
+  with:
+    version: 'v0.2.5'
+- run: envhub --help
+```
