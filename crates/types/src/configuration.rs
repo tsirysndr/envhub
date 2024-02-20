@@ -28,6 +28,8 @@ pub struct RtxParams {
 pub struct Configuration {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub packages: Option<Vec<String>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub secrets: Option<Vec<String>>,
     #[serde(
         skip_serializing_if = "Option::is_none",
         serialize_with = "hcl::ser::block"

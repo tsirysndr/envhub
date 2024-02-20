@@ -13,3 +13,5 @@ file ".bashrc.backup" {
 file ".gradle/gradle.properties" {
   content = "org.gradle.daemon=true"
 }
+
+secrets = ["CLOUDFLARE_ROOT_KEY"]
