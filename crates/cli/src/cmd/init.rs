@@ -17,6 +17,10 @@ pub fn execute_init(
     use_stow: bool,
 ) -> Result<(), Error> {
     fs::create_dir_all("dotfiles")?;
+
+    let mut file = File::create("dotfiles/.gitignore")?;
+    file.write_all(b"secrets\n")?;
+
     if packages.is_empty() && envs.is_empty() {
         let mut file = File::create("dotfiles/.zshrc")?;
         file.write_all(b"# This is an example of .zshrc file\n")?;

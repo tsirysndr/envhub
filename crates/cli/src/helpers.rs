@@ -8,6 +8,8 @@ use anyhow::Error;
 use clap::ArgMatches;
 use envhub_pkgs::{devbox::Devbox, homebrew::Homebrew, pkgx::Pkgx, PackageManager};
 use envhub_types::configuration::Configuration;
+use indexmap::IndexMap;
+use inquire::{Password, PasswordDisplayMode};
 
 pub fn create_envhub_dirs() -> Result<(), Error> {
     let base_dir = format!("{}/.envhub", env::var("HOME")?);
@@ -209,5 +211,30 @@ pub fn install_packages(config: &Configuration) -> Result<(), Error> {
         }
     }
 
+    Ok(())
+}
+
+pub fn save_secrets(config: &Configuration) -> Result<(), Error> {
+    if let Some(secrets) = config.secrets.clone() {
+        let home = env::var("HOME")?;
+
+        let mut secrets_map = IndexMap::new();
+
+        for secret in secrets {
+            let value = Password::new(&secret)
+                .with_display_toggle_enabled()
+                .with_display_mode(PasswordDisplayMode::Masked)
+                .without_confirmation()
+                .prompt()?;
+            secrets_map.insert(secret, value);
+        }
+
+        let mut content = "#!/bin/sh\n".to_string();
+        for (key, value) in secrets_map {
+            content = format!("{}export {}={}\n", content, key, value);
+        }
+        let path = format!("{}/.envhub/secrets", home);
+        fs::write(path, content)?;
+    }
     Ok(())
 }
