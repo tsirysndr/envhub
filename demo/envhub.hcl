@@ -2,6 +2,10 @@ packages = [
   "hello"
 ]
 
+envs {
+  EDITOR = "vim"
+}
+
 file ".screenrc" {
   source = "dotfiles/.screenrc"
 }

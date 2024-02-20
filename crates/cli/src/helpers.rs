@@ -221,6 +221,10 @@ pub fn save_secrets(config: &Configuration) -> Result<(), Error> {
         let mut secrets_map = IndexMap::new();
 
         for secret in secrets {
+            if let Ok(value) = env::var(&secret) {
+                secrets_map.insert(secret, value);
+                continue;
+            }
             let value = Password::new(&secret)
                 .with_display_toggle_enabled()
                 .with_display_mode(PasswordDisplayMode::Masked)
