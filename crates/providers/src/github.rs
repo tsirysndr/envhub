@@ -47,7 +47,7 @@ impl Github {
 
         let mut child = Command::new("sh")
             .arg("-c")
-            .arg(format!("pkgx gh repo clone {} {} {}", name, dest, checkout))
+            .arg(format!("pkgx git clone https://github.com/{} {} {}", name, dest, checkout))
             .current_dir(format!("{}/.envhub/github/{}", home, user))
             .stdin(Stdio::inherit())
             .stdout(Stdio::inherit())
