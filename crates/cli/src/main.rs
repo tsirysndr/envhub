@@ -112,6 +112,7 @@ fn cli() -> Command<'static> {
         .subcommand(
             Command::new("use")
                 .about("Enable an environment, can be a remote repository or a local directory")
+                .arg(arg!(-b --backup "Backup if files already exist, e.g. .bashrc"))
                 .arg(arg!([environment]).required(false).index(1)),
         )
         .subcommand(
@@ -187,9 +188,10 @@ async fn main() -> Result<(), Error> {
             Some(("list", _)) => cmd::file::list()?,
             _ => cli().print_help().unwrap(),
         },
-        Some(("use", args)) => {
-            cmd::r#use::use_environment(args.value_of("environment").unwrap_or("."))?
-        }
+        Some(("use", args)) => cmd::r#use::use_environment(
+            args.value_of("environment").unwrap_or("."),
+            args.is_present("backup"),
+        )?,
         Some(("unuse", _)) => cmd::unuse::unuse_environment()?,
         Some(("status", _)) => cmd::status::status()?,
         _ => cli().print_help().unwrap(),
