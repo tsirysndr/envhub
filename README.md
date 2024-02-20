@@ -106,6 +106,6 @@ You can use EnvHub as a [GitHub Action](https://github.com/tsirysndr/setup-envhu
 ```yaml
 - uses: tsirysndr/setup-envhub@v1
   with:
-    version: 'v0.2.8'
+    version: 'v0.2.9'
 - run: envhub --help
 ```
