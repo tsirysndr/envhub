@@ -30,11 +30,19 @@ pub fn switch_env(dir: Option<&str>, config: &Configuration) -> Result<(), Error
             if sm == "home-manager" {
                 updated_home_nix =
                     add_files(&updated_home_nix, config.files.clone().unwrap_or_default())?;
+                if config.envs.is_some() {
+                    updated_home_nix =
+                        add_envs(&updated_home_nix, config.envs.clone().unwrap_or_default())?;
+                }
             }
         }
         None => {
             updated_home_nix =
                 add_files(&updated_home_nix, config.files.clone().unwrap_or_default())?;
+            if config.envs.is_some() {
+                updated_home_nix =
+                    add_envs(&updated_home_nix, config.envs.clone().unwrap_or_default())?;
+            }
         }
     }
 
@@ -112,5 +120,21 @@ pub fn add_files(
     }
     entry.push_str("}\n");
     let result = nix_editor::write::write(content, "home.file", &entry)?;
+    Ok(result)
+}
+
+pub fn add_envs(content: &str, envs: IndexMap<String, String>) -> Result<String, Error> {
+    let mut entry = String::new();
+
+    if envs.is_empty() {
+        return Ok(content.into());
+    }
+
+    entry.push_str("{\n");
+    for (env, value) in envs {
+        entry.push_str(&format!("  \"{}\" = \"{}\";\n", env, value));
+    }
+    entry.push_str("}\n");
+    let result = nix_editor::write::write(content, "home.sessionVariables", &entry)?;
     Ok(result)
 }
