@@ -383,7 +383,7 @@ checksum = "545b22097d44f8a9581187cdf93de7a71e4722bf51200cfaba810865b49a495d"
 
 [[package]]
 name = "envhub"
-version = "0.2.8"
+version = "0.2.10"
 dependencies = [
  "anyhow",
  "clap 3.2.25",
