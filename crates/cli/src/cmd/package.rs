@@ -18,7 +18,7 @@ pub fn add(package: &str, apply: bool) -> Result<(), Error> {
     write_envhub_file(".", &config)?;
     println!("Package {} added to envhub file", package.cyan());
     if apply {
-        use_environment(".")?;
+        use_environment(".", false)?;
     }
     Ok(())
 }
@@ -59,7 +59,7 @@ pub fn remove(package: &str, apply: bool) -> Result<(), Error> {
         package.cyan()
     );
     if apply {
-        use_environment(".")?;
+        use_environment(".", false)?;
     }
     Ok(())
 }

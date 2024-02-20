@@ -11,7 +11,7 @@ use crate::helpers::{
     copy_home_nix, get_home_manager_dir, install_packages, read_envhub_file, save_secrets,
 };
 
-pub fn use_environment(name: &str) -> Result<(), Error> {
+pub fn use_environment(name: &str, backup: bool) -> Result<(), Error> {
     let scheme = match name.split(":").collect::<Vec<&str>>().len() > 1 {
         false => "local",
         true => name.split(":").collect::<Vec<&str>>()[0],
@@ -49,7 +49,7 @@ pub fn use_environment(name: &str) -> Result<(), Error> {
         rtx.load(&config)?;
     }
 
-    switch_env(Some(&home_manager_dir), &config)?;
+    switch_env(Some(&home_manager_dir), &config, backup)?;
 
     let state = toml::to_string(&config)?;
 

@@ -9,7 +9,7 @@ use indexmap::IndexMap;
 
 use crate::{nix, HOME_MANAGER};
 
-pub fn switch_env(dir: Option<&str>, config: &Configuration) -> Result<(), Error> {
+pub fn switch_env(dir: Option<&str>, config: &Configuration, backup: bool) -> Result<(), Error> {
     nix::install()?;
     let home_nix = fs::read_to_string(format!("{}/home.nix", dir.unwrap_or(HOME_MANAGER)))?;
     let mut updated_home_nix = home_nix.clone();
@@ -49,12 +49,20 @@ pub fn switch_env(dir: Option<&str>, config: &Configuration) -> Result<(), Error
     let home_nix_file = format!("{}/home.nix", dir.unwrap_or(HOME_MANAGER));
     fs::write(&home_nix_file, &updated_home_nix)?;
 
-    let mut child = Command::new("sh")
-        .arg("-c")
-        .arg(format!(
+    let cmd = match backup {
+        true => format!(
+            "nix run home-manager/master -- switch --flake {} -b backup",
+            dir.unwrap_or(HOME_MANAGER)
+        ),
+        false => format!(
             "nix run home-manager/master -- switch --flake {}",
             dir.unwrap_or(HOME_MANAGER)
-        ))
+        ),
+    };
+
+    let mut child = Command::new("sh")
+        .arg("-c")
+        .arg(cmd)
         .stdin(Stdio::inherit())
         .stdout(Stdio::inherit())
         .stderr(Stdio::inherit())
