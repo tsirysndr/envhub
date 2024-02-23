@@ -15,12 +15,12 @@ version = "0.2.12"
 [dependencies]
 anyhow = "1.0.71"
 clap = "3.2.20"
-envhub-ext = {path = "../ext", version = "0.1.0"}
+envhub-ext = {path = "../ext", version = "0.1.1"}
 envhub-hm = {path = "../hm", version = "0.2.0"}
 envhub-pkgs = {path = "../pkgs", version = "0.1.2"}
 envhub-providers = {path = "../providers", version = "0.2.0"}
 envhub-stow = {path = "../stow", version = "0.1.0"}
-envhub-types = {path = "../types", version = "0.2.1"}
+envhub-types = {path = "../types", version = "0.2.2"}
 hcl-rs = "0.14.2"
 indexmap = "2.2.3"
 inquire = "0.6.2"
