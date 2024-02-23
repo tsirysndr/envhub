@@ -68,8 +68,6 @@ fi
 # Clean up temporary files
 rm /tmp/$ASSET_NAME
 
-echo "Installation completed! 🎉"
-
 cat << EOF
 ${CYAN}
            ______           __  __      __  
@@ -86,5 +84,11 @@ ${GREEN}https://github.com/tsirysndr/envhub${NO_COLOR}
 Please file an issue if you encounter any problems!
 
 ===============================================================================
+
+Installation completed! 🎉
+
+To get started, run:
+
+${MAGENTA}envhub init${NO_COLOR}
 
 EOF
