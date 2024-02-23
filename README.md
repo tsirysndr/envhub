@@ -7,6 +7,7 @@
 </p>
 
 [![FlakeHub](https://img.shields.io/endpoint?url=https://flakehub.com/f/tsirysndr/envhub/badge)](https://flakehub.com/flake/tsirysndr/envhub)
+[![flakestry.dev](https://flakestry.dev/api/badge/flake/github/tsirysndr/envhub)](https://flakestry.dev/flake/github/tsirysndr/envhub)
 [![crates](https://img.shields.io/crates/v/envhub.svg)](https://crates.io/crates/envhub)
 [![downloads](https://img.shields.io/crates/dr/envhub)](https://crates.io/crates/envhub)
 [![discord](https://img.shields.io/discord/1160636024167333979?label=discord&logo=discord&color=5865F2)](https://discord.gg/aTGPE3Myhk)
