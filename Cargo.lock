@@ -383,7 +383,7 @@ checksum = "545b22097d44f8a9581187cdf93de7a71e4722bf51200cfaba810865b49a495d"
 
 [[package]]
 name = "envhub"
-version = "0.2.11"
+version = "0.2.12"
 dependencies = [
  "anyhow",
  "clap 3.2.25",
@@ -403,7 +403,7 @@ dependencies = [
 
 [[package]]
 name = "envhub-ext"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "anyhow",
  "envhub-types",
@@ -446,7 +446,7 @@ dependencies = [
 
 [[package]]
 name = "envhub-types"
-version = "0.2.1"
+version = "0.2.2"
 dependencies = [
  "hcl-rs",
  "indexmap 1.9.3",

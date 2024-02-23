@@ -7,7 +7,7 @@ keywords = ["nix", "shell", "environment", "dotfiles"]
 license = "MIT"
 name = "envhub-types"
 repository = "https://github.com/tsirysndr/envhub"
-version = "0.2.1"
+version = "0.2.2"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
