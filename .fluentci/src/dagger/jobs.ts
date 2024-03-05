@@ -32,6 +32,7 @@ export const test = async (
       expand: true,
     })
     .withExec(["nix", "--version"])
+    .withExec(["ls", "-la", "/root"])
     .withExec(["which", "hello"])
     .withExec(["envhub", "unuse"])
     .withExec(["envhub", "status"]);
