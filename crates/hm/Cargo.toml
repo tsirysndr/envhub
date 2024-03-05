@@ -7,7 +7,7 @@ keywords = ["nix", "shell", "environment", "dotfiles"]
 license = "MIT"
 name = "envhub-hm"
 repository = "https://github.com/tsirysndr/envhub"
-version = "0.2.2"
+version = "0.2.3"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -17,3 +17,4 @@ envhub-types = {version = "0.2.0", path = "../types"}
 indexmap = {version = "1.9.3", features = ["serde"]}
 nix-editor = "0.3.0"
 rnix = "0.11.0"
+users = "0.11.0"

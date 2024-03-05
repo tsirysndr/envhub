@@ -1,8 +1,15 @@
 use std::{env, process::Command};
+use users::get_current_username;
 
 use anyhow::Error;
 
 pub fn install() -> Result<(), Error> {
+    let user = match get_current_username() {
+        Some(user) => user.to_string_lossy().to_string(),
+        None => "root".to_string(),
+    };
+
+    env::set_var("USER", user);
     env::set_var(
         "PATH",
         format!(
@@ -11,6 +18,7 @@ pub fn install() -> Result<(), Error> {
             "/nix/var/nix/profiles/default/bin"
         ),
     );
+
     let linux = match std::env::consts::OS {
         "linux" => "linux --extra-conf 'sandbox = false' --init none",
         _ => "",

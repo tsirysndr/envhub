@@ -383,7 +383,7 @@ checksum = "545b22097d44f8a9581187cdf93de7a71e4722bf51200cfaba810865b49a495d"
 
 [[package]]
 name = "envhub"
-version = "0.2.14"
+version = "0.2.15"
 dependencies = [
  "anyhow",
  "clap 3.2.25",
@@ -399,6 +399,7 @@ dependencies = [
  "owo-colors",
  "tokio",
  "toml",
+ "users",
 ]
 
 [[package]]
@@ -411,13 +412,14 @@ dependencies = [
 
 [[package]]
 name = "envhub-hm"
-version = "0.2.2"
+version = "0.2.3"
 dependencies = [
  "anyhow",
  "envhub-types",
  "indexmap 1.9.3",
  "nix-editor",
  "rnix 0.11.0",
+ "users",
 ]
 
 [[package]]
@@ -1333,6 +1335,16 @@ name = "unicode-width"
 version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e51733f11c9c4f72aa0c160008246859e340b00807569a0da0e7a1079b27ba85"
+
+[[package]]
+name = "users"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "24cc0f6d6f267b73e5a2cadf007ba8f9bc39c6a6f9666f8cf25ea809a153b032"
+dependencies = [
+ "libc",
+ "log",
+]
 
 [[package]]
 name = "utf8parse"

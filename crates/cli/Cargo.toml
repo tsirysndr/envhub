@@ -8,7 +8,7 @@ license = "MIT"
 name = "envhub"
 readme = "../../README.md"
 repository = "https://github.com/tsirysndr/envhub"
-version = "0.2.14"
+version = "0.2.15"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -16,7 +16,7 @@ version = "0.2.14"
 anyhow = "1.0.71"
 clap = "3.2.20"
 envhub-ext = {path = "../ext", version = "0.1.1"}
-envhub-hm = {path = "../hm", version = "0.2.2"}
+envhub-hm = {path = "../hm", version = "0.2.3"}
 envhub-pkgs = {path = "../pkgs", version = "0.1.2"}
 envhub-providers = {path = "../providers", version = "0.2.0"}
 envhub-stow = {path = "../stow", version = "0.1.0"}
@@ -27,3 +27,4 @@ inquire = "0.6.2"
 owo-colors = "3.5.0"
 tokio = {version = "1.28.2", features = ["full"]}
 toml = "0.7.4"
+users = "0.11.0"
