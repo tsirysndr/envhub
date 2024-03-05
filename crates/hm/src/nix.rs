@@ -13,13 +13,13 @@ pub fn install() -> Result<(), Error> {
     );
     let mut child = Command::new("sh")
         .arg("-c")
-        .arg("type nix > /dev/null || curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install")
+        .arg("type nix > /dev/null || curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install linux --extra-conf 'sandbox = false' --init none")
         .spawn()?;
     child.wait()?;
 
     let mut child = Command::new("sh")
         .arg("-c")
-        .arg("type nix > /dev/null || curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm")
+        .arg("type nix > /dev/null || curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install linux --extra-conf 'sandbox = false' --init none --no-confirm")
         .spawn()?;
     child.wait()?;
 
