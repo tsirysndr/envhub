@@ -15,4 +15,14 @@ jobs:
       - name: Setup Fluent CI
         uses: fluentci-io/setup-fluentci@v4
       - name: Run Tests
-        run: fluentci run . test
+        run: |
+          fluentci run . test
+          cd demo
+          ../envhub init
+          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+          ../envhub use
+          type hello
+          hello
+          ../envhub unuse
+        env:
+          CLOUDFLARE_ROOT_KEY: 123

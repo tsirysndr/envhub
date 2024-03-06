@@ -39,6 +39,9 @@ export const test = async (
 
   const stdout = await ctr.stdout();
   console.log(stdout);
+
+  await ctr.file("/usr/local/cargo/bin/envhub").export("./envhub");
+
   return stdout;
 };
 

@@ -18,10 +18,19 @@ pub fn install() -> Result<(), Error> {
             "/nix/var/nix/profiles/default/bin"
         ),
     );
+    let mut child = Command::new("sh")
+        .arg("-c")
+        .arg("type systemctl > /dev/null")
+        .spawn()?;
+    let status = child.wait()?;
+    let init = match status.code() {
+        Some(0) => "",
+        _ => "--init none",
+    };
 
     let linux = match std::env::consts::OS {
-        "linux" => "linux --extra-conf 'sandbox = false' --init none",
-        _ => "",
+        "linux" => format!("linux --extra-conf 'sandbox = false' {}", init),
+        _ => "".to_string(),
     };
     let mut child = Command::new("sh")
         .arg("-c")
