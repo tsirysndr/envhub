@@ -101,6 +101,27 @@ file ".gradle/gradle.properties" {
 
 See [demo](demo) and [examples](examples) for a more complete example.
 
+## 🧩 As a Dagger Module
+
+Call from the command line:
+
+```bash
+dagger -m github.com/tsirysndr/daggerverse/envhub call \
+  use --environment github:tsirysndr/dotfiles-example \
+  --src .
+```
+
+call from a [Fluent CI](https://fluentci.io/) module:
+
+```typescript
+import { use } from 'jsr:@fx/envhub';
+
+await use(
+  ".",
+  "github:tsirysndr/dotfiles-example"
+);
+```
+
 ## As a GitHub Action
 
 You can use EnvHub as a [GitHub Action](https://github.com/tsirysndr/setup-envhub) to manage your dotfiles and packages in your CI/CD workflow.
@@ -108,6 +129,6 @@ You can use EnvHub as a [GitHub Action](https://github.com/tsirysndr/setup-envhu
 ```yaml
 - uses: tsirysndr/setup-envhub@v1
   with:
-    version: 'v0.2.16'
+    version: 'v0.2.17'
 - run: envhub --help
 ```
