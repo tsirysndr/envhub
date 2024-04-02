@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e -o pipefail
+
 readonly MAGENTA="$(tput setaf 5 2>/dev/null || echo '')"
 readonly GREEN="$(tput setaf 2 2>/dev/null || echo '')"
 readonly CYAN="$(tput setaf 6 2>/dev/null || echo '')"
@@ -54,13 +56,8 @@ tar -xzf /tmp/$ASSET_NAME -C /tmp
 chmod +x /tmp/envhub
 
 # Move the extracted binary to the installation directory
-# use sudo if OS is Linux
-if [ "$OS" = "Linux" ]; then
-    if command -v sudo >/dev/null 2>&1; then
-        sudo mv /tmp/envhub $INSTALL_DIR
-    else
-        mv /tmp/envhub $INSTALL_DIR
-    fi
+if command -v sudo >/dev/null 2>&1; then
+    sudo mv /tmp/envhub $INSTALL_DIR
 else
     mv /tmp/envhub $INSTALL_DIR
 fi
