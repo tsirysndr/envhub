@@ -1,0 +1,11 @@
+{
+  "packages": ["rustup@latest", "libiconv@latest"],
+  "shell": {
+    "init_hook": ["rustup default stable", "cargo fetch"],
+    "scripts": {
+      "test": "cargo test -- --show-output",
+      "start": "cargo run",
+      "build-docs": "cargo doc"
+    }
+  }
+}

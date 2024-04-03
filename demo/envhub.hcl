@@ -6,6 +6,12 @@ envs {
   EDITOR = "vim"
 }
 
+homebrew {
+  packages = [
+    "neovim --HEAD"
+  ]
+}
+
 file ".screenrc" {
   source = "dotfiles/.screenrc"
 }
