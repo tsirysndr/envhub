@@ -38,7 +38,7 @@ impl PackageManager for Nix {
         );
         let mut child = Command::new("sh")
             .arg("-c")
-            .arg("type systemctl > /dev/null")
+            .arg("type systemctl > /dev/null 2> /dev/null")
             .spawn()?;
         let status = child.wait()?;
         let init = match status.code() {
