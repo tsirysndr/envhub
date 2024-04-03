@@ -383,7 +383,7 @@ checksum = "545b22097d44f8a9581187cdf93de7a71e4722bf51200cfaba810865b49a495d"
 
 [[package]]
 name = "envhub"
-version = "0.2.17"
+version = "0.2.18"
 dependencies = [
  "anyhow",
  "clap 3.2.25",
@@ -412,7 +412,7 @@ dependencies = [
 
 [[package]]
 name = "envhub-hm"
-version = "0.2.4"
+version = "0.2.5"
 dependencies = [
  "anyhow",
  "envhub-types",
@@ -424,7 +424,7 @@ dependencies = [
 
 [[package]]
 name = "envhub-pkgs"
-version = "0.1.3"
+version = "0.1.5"
 dependencies = [
  "anyhow",
  "users",
