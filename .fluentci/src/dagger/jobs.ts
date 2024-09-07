@@ -15,7 +15,7 @@ export const test = async (
   const ctr = dag
     .pipeline(Job.test)
     .container()
-    .from("rust:1.76-bullseye")
+    .from("rust:1.80-bullseye")
     .withDirectory("/app", context, { exclude })
     .withWorkdir("/app")
     .withMountedCache("/app/target", dag.cacheVolume("target"))
@@ -50,7 +50,7 @@ export const build = (src = "."): Promise<string> => {
   const ctr = dag
     .pipeline(Job.build)
     .container()
-    .from("rust:1.76-bullseye")
+    .from("rust:1.80-bullseye")
     .withExec(["apt-get", "update"])
     .withExec([
       "apt-get",
