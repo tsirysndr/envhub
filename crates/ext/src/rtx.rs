@@ -18,7 +18,7 @@ impl Rtx {
     pub fn install(&self, package: &str) -> Result<(), Error> {
         let mut child = Command::new("sh")
             .arg("-c")
-            .arg(format!("rtx install {}", package))
+            .arg(format!("mise install {}", package))
             .stdin(Stdio::inherit())
             .stdout(Stdio::inherit())
             .stderr(Stdio::inherit())
@@ -46,7 +46,7 @@ impl Extension for Rtx {
         env::set_var(
             "PATH",
             format!(
-                "{}/.local/share/rtx/bin:{}",
+                "{}/.local/bin:{}",
                 env::var("HOME")?,
                 env::var("PATH")?
             ),
@@ -54,21 +54,21 @@ impl Extension for Rtx {
         env::set_var(
             "PATH",
             format!(
-                "{}/.local/share/rtx/shims:{}",
+                "{}/.local/share/mise/shims:{}",
                 env::var("HOME")?,
                 env::var("PATH")?
             ),
         );
         let mut child = Command::new("sh")
             .arg("-c")
-            .arg("type rtx > /dev/null || curl https://rtx.pub/install.sh | sh")
+            .arg("type mise > /dev/null || curl -fsSL https://mise.run | sh")
             .stdin(Stdio::inherit())
             .stdout(Stdio::inherit())
             .stderr(Stdio::inherit())
             .spawn()?;
         child.wait()?;
 
-        fs::create_dir_all(format!("{}/.local/share/rtx/shims", env::var("HOME")?))?;
+        fs::create_dir_all(format!("{}/.local/share/mise/shims", env::var("HOME")?))?;
 
         Ok(())
     }
