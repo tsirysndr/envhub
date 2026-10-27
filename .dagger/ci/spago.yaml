@@ -1,0 +1,19 @@
+package:
+  name: dagger-module
+  dependencies:
+    - aff
+    - arrays
+    - control
+    - foldable-traversable
+    - strings
+    - maybe
+    - dagger-sdk
+    - effect
+    - exceptions
+    - prelude
+workspace:
+  packageSet:
+    registry: 77.8.0
+  extraPackages:
+    dagger-sdk:
+      path: dagger-sdk
