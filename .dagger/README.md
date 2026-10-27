@@ -21,7 +21,7 @@ Commands for GitHub Actions, run from `.dagger`:
 dagger api call -m ci test --source ..
 dagger api call -m ci smoke --source ..
 dagger api call -m ci build --source .. \
-  --target x86_64-unknown-linux-gnu --version v0.2.18 --output ../dist
+  --target x86_64-unknown-linux-gnu --version v0.3.0 --output ../dist
 ```
 
 Supported Linux targets are `x86_64-unknown-linux-gnu` and
