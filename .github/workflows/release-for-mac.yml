@@ -1,7 +1,9 @@
+name: release macOS
 on:
   release:
     types: [created]
-
+permissions:
+  contents: write
 jobs:
   release:
     name: release ${{ matrix.target }}
@@ -9,46 +11,31 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target:
-          - x86_64-apple-darwin
-          - aarch64-apple-darwin
-
+        target: [x86_64-apple-darwin, aarch64-apple-darwin]
     steps:
-      - name: Setup Fluent CI
-        uses: fluentci-io/setup-fluentci@v5
-      - name: Installing Rust toolchain
-        uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
         with:
-          toolchain: stable
-          target: ${{ matrix.target }}
-          override: true
-      - name: Checking out sources
-        uses: actions/checkout@v1
-      - name: Running cargo build
-        uses: actions-rs/cargo@v1
+          ref: ${{ github.event.release.tag_name }}
+      - uses: dtolnay/rust-toolchain@master
         with:
-          command: build
-          toolchain: stable
-          args: -p envhub --release --target ${{ matrix.target }}
-      - name: Install aarch64-apple-darwin toolchain
-        if: matrix.target == 'aarch64-apple-darwin'
-        run: rustup target add aarch64-apple-darwin
-      - name: Set env
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-      - name: Packaging final binary
-        shell: bash
-        run: |
-          cd target/${{ matrix.target }}/release
-          tar czvf ../../../envhub_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz envhub
-          shasum -a 256 ../../../envhub_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz > ../../../envhub_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz.sha256
-          cd ../../../ && rm -rf target
-      - name: Upload release assets
-        run: |
-          for ext in tar.gz tar.gz.sha256; do
-            export FILE=envhub_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.$ext
-            fluentci run github_pipeline release_upload
-          done
+          toolchain: 1.99.0
+          targets: ${{ matrix.target }}
+      - name: Build native binary
         env:
-          TAG: ${{ env.RELEASE_VERSION }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DAGGER_CLOUD_TOKEN: ${{ secrets.DAGGER_CLOUD_TOKEN }}
+          TARGET: ${{ matrix.target }}
+        run: cargo build --locked -p envhub --release --target "$TARGET"
+      - name: Package native binary
+        env:
+          RELEASE_VERSION: ${{ github.event.release.tag_name }}
+          TARGET: ${{ matrix.target }}
+        run: |
+          mkdir -p dist
+          tar -C "target/$TARGET/release" -czf "dist/envhub_${RELEASE_VERSION}_${TARGET}.tar.gz" envhub
+          cd dist
+          shasum -a 256 "envhub_${RELEASE_VERSION}_${TARGET}.tar.gz" > "envhub_${RELEASE_VERSION}_${TARGET}.tar.gz.sha256"
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: dist/*
+          fail_on_unmatched_files: true

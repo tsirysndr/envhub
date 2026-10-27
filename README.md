@@ -113,16 +113,12 @@ dagger -m github.com/tsirysndr/daggerverse/envhub call \
   --src .
 ```
 
-call from a [Fluent CI](https://fluentci.io/) module:
+## CI with PureScript Dagger
 
-```typescript
-import { use } from 'jsr:@fx/envhub';
-
-await use(
-  ".",
-  "github:tsirysndr/dotfiles-example"
-);
-```
+The GitHub workflows call the PureScript modules in [`.dagger`](.dagger/README.md)
+for Rust 1.99 workspace tests, Nix activation smoke tests, and Linux release
+archives. Native macOS releases also use Rust 1.99. Flakestry publishing is
+disabled; FlakeHub publishing remains on its existing runner.
 
 ## As a GitHub Action
 
