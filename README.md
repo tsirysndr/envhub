@@ -25,7 +25,7 @@ Written in [Rust](https://www.rust-lang.org/), internally it uses [nix](https://
 Using bash :
 
 ```bash
-curl -sSL https://install.envhub.sh | bash
+curl -sSL https://raw.githubusercontent.com/tsirysndr/envhub/refs/heads/main/install.sh | bash
 ```
 
 Using [Cargo](https://crates.io) :
