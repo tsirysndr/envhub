@@ -7,7 +7,7 @@ modules in `ci/src/CI` define the Linux work. `Main.purs` only starts the runtim
 | --- | --- |
 | `test` | Run `cargo test --locked --workspace` with Rust 1.99 |
 | `smoke` | Build EnvHub with Rust 1.99 and exercise `init`, `use`, `status`, `hello`, and `unuse` in a disposable Nix environment, then repeat activation for the repository demo |
-| `build` | Cross-build a Linux release, returning its tarball and SHA-256 checksum as a Dagger Directory |
+| `build` | Build a native Linux release, returning its tarball and SHA-256 checksum as a Dagger Directory |
 
 Dagger v1.0.0-beta.21 uses the vendored PureScript SDK with Node 24. Its runtime
 installs PureScript 0.15.16 and Spago 1.0.5. The explicit `dagger-sdk` path in
@@ -25,8 +25,9 @@ dagger api call -m ci build --source .. \
 ```
 
 Supported Linux targets are `x86_64-unknown-linux-gnu` and
-`aarch64-unknown-linux-gnu`. Builds use `rust:1.99-bookworm`; ARM releases use
-the GNU cross-linker. Cargo downloads and build artifacts use Dagger cache
+`aarch64-unknown-linux-gnu`. Builds use `rust:1.99-bookworm` on matching native GitHub runners:
+`ubuntu-24.04-arm` for ARM64 and `ubuntu-latest` for x86_64. Dagger uses
+the runner architecture; no cross-linker is installed. Cargo downloads and build artifacts use Dagger cache
 volumes. Release outputs are copied out of the mounted target cache before
 export. No GitHub Actions cache snapshots are used.
 

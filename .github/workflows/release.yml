@@ -6,11 +6,15 @@ permissions:
   contents: write
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        target: [aarch64-unknown-linux-gnu, x86_64-unknown-linux-gnu]
+        include:
+          - target: aarch64-unknown-linux-gnu
+            os: ubuntu-24.04-arm
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:

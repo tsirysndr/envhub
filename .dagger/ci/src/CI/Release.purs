@@ -30,13 +30,7 @@ build client { source, target, version } = do
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._+-") (toCharArray version)) $
     throwError (error "Invalid release version")
   let name = "envhub_" <> version <> "_" <> target <> ".tar.gz"
-      base = Build.environment client source
-      toolchain = if target == "aarch64-unknown-linux-gnu" then base
-        # Container.withExec [ "apt-get", "update" ]
-        # Container.withExec [ "apt-get", "install", "-y", "--no-install-recommends", "gcc-aarch64-linux-gnu" ]
-        # Container.withEnvVariable "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER" "aarch64-linux-gnu-gcc"
-        else base
-      packaged = toolchain
+      packaged = Build.environment client source
         # Container.withExec [ "rustup", "target", "add", target ]
         # Container.withExec [ "cargo", "build", "--locked", "-p", "envhub", "--release", "--target", target ]
         # Container.withExec [ "mkdir", "-p", "/stage", "/out" ]
